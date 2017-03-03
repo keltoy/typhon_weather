@@ -25,6 +25,7 @@ connParam = {'host':host, 'port':int(port), 'user':user, 'passwd':passwd,'db': d
 URL = "http://www.weather.com.cn/weather1d/%s.shtml"
 
 class MainHandler(web.RequestHandler):
+    POOL = pools.Pool(connParam, max_idle_connections=5, max_recycle_sec=3)
     @gen.coroutine
     def get(self):
         delay = self.get_argument('delay', 5)
@@ -33,12 +34,7 @@ class MainHandler(web.RequestHandler):
         self.finish()
 
 class PM2_5Handler(web.RequestHandler):
-    POOL = pools.Pool(
-        connParam,
-        max_idle_connections=1,
-        max_recycle_sec=3,
-    )
-
+    POOL = pools.Pool(connParam, max_idle_connections=5, max_recycle_sec=3)
     @gen.coroutine
     def post(self):
         d1 = self.get_argument('d1', '101010100')
@@ -56,32 +52,35 @@ class PM2_5Handler(web.RequestHandler):
 
 
 
-class WeatherHandler(web.RequestHandler):
-    POOL = pools.Pool(
-        connParam,
-        max_idle_connections=1,
-        max_recycle_sec=3,
-    )
-
+class WeatherDayHandler(web.RequestHandler):
+    POOL = pools.Pool(connParam, max_idle_connections=5, max_recycle_sec=3)
     @gen.coroutine
-    def post(self):
-        code = ""
-        d2 = self.get_argument('d2')
-        d4 = self.get_argument('d4')
-        cursor = yield self.POOL.execute('select d1 from tb_city_info_china where d2=%s and d4=%s', (d2,d4))
+    def get(self, d1, time):
+        query_id_day = d1 +'_' + time[:-3]
+        query_id_hour = d1 +'_' + time
+        sql_day = 'select d1, time_point, area, temperature_max, temperature_min, humidity_max, humidity_min, weather, wind, special_sign from TB_WEATHER_DAY_CHINA where query_id="%s"'
+        sql_hour = 'select temperature, humidity, wind, weather from TB_WEATHER_HOUR_CHINA where query_id=%s'
+        cursor = yield self.POOL.execute(sql_day,query_id_day)
+        res = {}
         if cursor.rowcount > 0:
-            code = cursor.fetchone()[0]
+            res = cursor.fetchone()
+        else:
+            res = {"area": "北京"}
 
-        url = URL % code
-        client = AsyncHTTPClient()
-        response = yield client.fetch(url, method='GET')
-        res = crawlWeather(response.body)
-        self.finish(res.to_json())
+        cursor = yield self.POOL.execute(sql_hour,query_id_hour)
+        if cursor.rowcount > 0:
+            code = cursor.fetchone()
+            res['temperature']=code[0]
+            res['humidity'] = code[1]
+            res['wind'] = code[2]
+            res['weather'] = code[3]
+        self.write(res)
+        self.finish()
 
 
 application = web.Application([
     (r"/", MainHandler),
-    (r"/weather", WeatherHandler),
+    (r"/weather/(\w+)/(\w+)", WeatherDayHandler),
     (r"/pm2_5", PM2_5Handler)
     ], autoreload=True)
 application.listen(8000)
