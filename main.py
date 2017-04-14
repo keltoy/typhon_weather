@@ -3,13 +3,14 @@
 
 from tornado.ioloop import IOLoop
 from tornado import gen, web
-from common.Item import Item
+from common.item import Item
 from typhoon_weather.crawl_weather import crawlWeather
 
 from tornado_mysql import pools
 from tornado.httpclient import AsyncHTTPClient
 from datetime import datetime
 import configparser
+import os
 
 cp = configparser.ConfigParser()
 cp.read("resource.conf")
@@ -77,11 +78,22 @@ class WeatherDayHandler(web.RequestHandler):
         self.finish()
 
 
-application = web.Application([
+class QCodePageHandler(web.RequestHandler):
+    @gen.coroutine
+    def get(self, d1):
+        self.render('index.html')
+
+
+application = web.Application(handlers=[
     (r"/", MainHandler),
     (r"/weather/(\w+)/(\w+)", WeatherDayHandler),
-    (r"/pm2_5", PM2_5Handler)
-    ], autoreload=True)
+    (r"/pm2_5", PM2_5Handler),
+    (r"/propagation/(\w+)", QCodePageHandler)
+    ],
+                              autoreload=True,
+                              template_path=os.path.join(os.path.dirname(__file__), "templates"),
+                              static_path=os.path.join(os.path.dirname(__file__), "static")
+)
 application.listen(8000)
 IOLoop.current().start()
 

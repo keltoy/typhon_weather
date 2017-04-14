@@ -1,0 +1,1992 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.pm25.com/city/beijing.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN" xml:lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>童哥童哥妹妹多多</title>
+<meta name="Keywords" content="PM2.5,细颗粒物,雾霾,PM2.5浓度,PM2.5指数,PM2.5监测,空气质量,空气质量指数,空气污染,绿色呼吸">
+<meta name="Description" content="绿色呼吸免费提供PM2.5实时数据查询,更收集分析关于PM2.5有关的一切报告和科研结论,力求以绵薄之力寻同呼吸共命运的你关注PM2.5,关注大气健康!">
+<link href="{{ static_url("css/common.css") }}" rel="stylesheet" type="text/css">
+<link href="{{ static_url("css/citydata.css") }}" rel="stylesheet" type="text/css">
+<script src="{{ static_url("js/sea.js") }}"></script>
+<script src="{{ static_url("js/common.js") }}"></script>
+<!--[if IE]>
+<style type="text/css">
+.mini_xiaotieshi a:hover{filter:alpha(opacity=100);}
+</style>
+<![endif]-->
+<body>
+<!--顶部功能条-->
+<script>
+seajs.use(['$'], function(){
+$(function(){
+
+  // 头部搜索
+  $('.topnav_search_btn').click(function(){
+    var str = encodeURI($('.topnav_search_city_text').val());
+    window.location = '/so/' + str + '/all';
+  });
+
+  $('.topnav_search_city_text').bind("keyup", function(event){
+    if(event.keyCode == 13){
+      var str = encodeURI($('.topnav_search_city_text').val());
+      window.location = '/so/' + str + '/all';
+    }
+  });
+
+  $(".topnav_sitemap").mouseover(function(){
+    $('.topnav_sitemap_active').show();
+  }).mouseout(function(){
+    $('.topnav_sitemap_active').hide();
+  });
+
+  $(".topnav_sitemap_active").mouseover(function(){
+    $('.topnav_sitemap_active').show();
+  }).mouseout(function(){
+    $('.topnav_sitemap_active').hide();
+  });
+
+  $(".topnav_phone").mouseover(function(){
+    $('.topnav_app_active').show();
+  }).mouseout(function(){
+    $('.topnav_app_active').hide();
+  });
+
+  $(".topnav_app_active").mouseover(function(){
+    $('.topnav_app_active').show();
+  }).mouseout(function(){
+    $('.topnav_app_active').hide();
+  });
+  
+});
+});
+</script>
+<!--banner部分-->
+<!--当前城市不同等级不同颜色背景"banner_bg_level3"这里后边的数字是1~6-->
+<div class="citydata_banner_width banner_bg_level2">
+    <div class="citydata_banner">
+            <div class="topnav_sitemap">
+                      <div class="citydata_changecity">
+                           <a href="javascript:void(0)" class="minicity_clk"></a>
+                           <span class="city_name">北京</span>
+                           <span class="city_description">实时空气质量指数（AQI）</span>
+                      </div>
+                      <div class="citydata_updatetime">更新时间：2017-04-12 09:00</div>
+                      <div class="clear"></div>
+            </div>
+    
+            <!--透明层-->
+            <div class="citydata_banner_opacity">
+                      <div class="cbo_left">
+                                 <div class="cbol_aqi">
+                                       <a class="cbol_aqi_num" href="http://www.pm25.com/news/385.html" target="_blank">75</a>
+                                       <a class="cbol_aqi_name" href="http://www.pm25.com/news/385.html" target="_blank">AQI指数</a>                                
+                                 </div> 
+                                 <div class="cbol_wuranwu">
+                                       <!--没有污染物数据的时候，增加个“cbol_wuranwu_nodata”，删掉里面内容再加个i标签"<i></i>"-->
+                                       <a class="cbol_wuranwu_num " href="http://www.pm25.com/news/387.html" target="_blank">PM10</a>
+                                       <a class="cbol_wuranwu_name" href="http://www.pm25.com/news/387.html" target="_blank">首要污染物</a>
+                                 </div> 
+                                 <div class="cbol_nongdu">
+                                       <!--没有浓度数据的时候，增加个“cbol_nongdu_nodata”，删掉里面内容换成个i标签"<i></i>"-->
+                                       <a class="cbol_nongdu_num " href="http://www.pm25.com/news/386.html" target="_blank">
+                                                                                        <span class="cbol_nongdu_num_1">39</span>
+                                            <span class="cbol_nongdu_num_2">微克/立方米</span>
+                                                                               </a>
+                                       <a class="cbol_nongdu_name" href="http://www.pm25.com/news/386.html" target="_blank">PM2.5浓度</a>
+                                 </div> 
+                      </div>
+                      <div class="cbo_right">
+                                <div class="cbor_gauge">
+                                      <!--指针的位置不同的等级“cbor_gauge_level1”改后边的数字，里面的文字包含"优，良，轻度污染，中度污染，重度污染，严重污染"-->
+                                      <span class="cbor_gauge_level2">良</span>
+                                      <p class="cbor_gauge_img"></p>
+                                      <p class="cbor_gauge_num">0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500</p>
+                                </div>
+                                <div class="cbor_tips">
+                                      <p>
+                                          <span>温馨提示：</span>
+                                          可以正常在户外活动，易敏感人群应减少外出。                                      </p>
+                                </div>
+                               <a class="cbor_morelink" href="http://www.pm25.com/protection.html" target="_blank">更多防护&gt;&gt;</a>
+                      </div>
+                      <div class="clear"></div>
+            </div>
+            <div class="cbo_opacity"></div>
+    </div>
+</div>
+
+<!--主体内容-->
+<div class="main_width">
+    <div class="main">
+        <!--监测点数据-->
+        <!--曲线图-->
+        <div class="panel_graph ui-switchable" data-widget-cid="widget-2">
+             <p class="pg_title">北京 空气质量指数(AQI)变化趋势</p>
+             <div class="pg_area ui-switchable-content">
+                  <div class="pg_area_tab ui-switchable-nav">
+                         <a class="tab_24h current ui-switchable-trigger" href="javascript:void(0)">最近24小时<i></i></a>
+                         <a class="tab_30d ui-switchable-trigger" href="javascript:void(0)">最近30天<i></i></a>
+                         <div class="clear"></div>
+                   </div>
+                   <!--曲线图从这里开始,放到这里-->
+                   <div id="pg_content_24h" class="pg_content ui-switchable-panel" style="background-color: rgba(0, 0, 0, 0);" _echarts_instance_="1491961769089"><div style="position: relative; overflow: hidden; width: 978px; height: 310px;"><div width="1956" height="620" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></div><canvas width="1956" height="620" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas><canvas width="1956" height="620" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 310px; user-select: none;"></canvas></div></div>
+                   <div id="pg_content_30d" class="pg_content ui-switchable-panel" style="background-color: rgba(0, 0, 0, 0); display: none;" _echarts_instance_="1491961769090"><div style="position: relative; overflow: hidden; width: 978px; height: 300px;"><div width="1956" height="600" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></div><canvas width="1956" height="600" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas><canvas width="1956" height="600" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 978px; height: 300px; user-select: none;"></canvas></div></div>
+             </div>
+        </div>
+        
+                <!--相关城市-->
+        <dl class="panel_relevantcity">
+             <dt>北京 相关城市实时空气质量指数(AQI)</dt>
+             <dd>
+                <!--有level单词的，后边的数字就是1~6..上升和下降的符号是“prir_aqi_rise”和“prir_aqi_down” ，每一行的第五个要加个属性“margin-right:0px;”-->
+                                  <a class="pr_item pr_item_level2" href="http://www.pm25.com/city/beijing.html" target="_blank">
+                    <p class="pri_left">北京</p>
+                    <p class="pri_right">
+                         <span class="prir_aqi_level2">79<i class=""></i></span>
+                         <b class="prir_aqi_level2">良</b>
+                    </p>
+                  </a>
+                                  <a class="pr_item pr_item_level4" href="http://www.pm25.com/city/tianjin.html" target="_blank">
+                    <p class="pri_left">天津</p>
+                    <p class="pri_right">
+                         <span class="prir_aqi_level4">153<i class=""></i></span>
+                         <b class="prir_aqi_level4">中度污染</b>
+                    </p>
+                  </a>
+                                  <a class="pr_item pr_item_level2" href="http://www.pm25.com/city/shanghai.html" target="_blank">
+                    <p class="pri_left">上海</p>
+                    <p class="pri_right">
+                         <span class="prir_aqi_level2">79<i class=""></i></span>
+                         <b class="prir_aqi_level2">良</b>
+                    </p>
+                  </a>
+                                  <a class="pr_item pr_item_level1" href="http://www.pm25.com/city/chongqing.html" target="_blank">
+                    <p class="pri_left">重庆</p>
+                    <p class="pri_right">
+                         <span class="prir_aqi_level1">41<i class=""></i></span>
+                         <b class="prir_aqi_level1">优</b>
+                    </p>
+                  </a>
+                                 <!--特殊的一个区块链接-->
+                 <a class="pr_item_special" href="http://www.pm25.com/map.html">
+                    <em>全国城市</em><i></i>
+                 </a>
+                 <div class="clear"></div>
+             </dd> 
+        </dl>
+    </div>
+</div>
+
+<!--返回顶部-->
+<div class="quick_item" style="display:none;">
+    <a class="quick_item_back" title="回到顶部" href="javascript:void(0)"><i></i></a>
+    <a class="quick_item_erweima" title="二维码" href="javascript:void(0)">
+      <i></i>
+      <div class="quick_item_erweima_active">
+        <img src="./绿色呼吸pm25.com, PM2.5(细颗粒物)及空气质量指数(AQI)实时查询！_绿色呼吸_files/quick_erweima.gif">
+      </div>
+    </a>
+    <a class="quick_item_feedback" title="意见反馈" href="http://www.pm25.com/about.html#feedback"><i></i><span>反馈</span></a>
+    
+</div>
+
+<!--底部内容-->
+<div class="footer_width">
+       <div class="footer">
+     </div>
+</div>
+<!--最底部版权-->
+<div class="copyright_width">
+</div>
+
+
+
+
+
+
+<!--排完需要增加全部的role属性，a标签的nofllow属性，图片的，链接的alt属性-->
+
+<!--圣诞节送口罩活动弹出-2014-12-22-->
+<!-- <div class="shengdanjie_tanchu_area" style="display:none;">
+        <div class="shengdanjie_tanchu">
+                <a class="shengdanjie_tanchu_close" href="javascript:void(0)"><i></i></a>
+                <a class="shengdanjie_tanchu_link" href="http://mp.weixin.qq.com/s?__biz=MzA5MjUzNDUzMg==&mid=206211411&idx=1&sn=364d91dd104dd4a81b7d3c9c634701f0#rd" target="_blank"></a>
+                <a class="shengdanjie_tanchu_know" href="javascript:void(0)">我知道了</a>
+        </div>
+        <div style="width:100%; height:100%; position:fixed; z-index:1000; top:0px; left:0px; background-color:rgba(0, 0, 0, 0.7);"></div>
+</div> -->
+<!--圣诞节送口罩活动弹出结束-2014-12-22-->
+<!--圣诞节送口罩活动侧边栏-2014-12-22-->
+<!-- <div class="shengdanjie_leftbar">
+     <a class="shengdanjie_leftbar_close" href="javascript:void(0)"></a>
+</div> -->
+<!--圣诞节送口罩活动侧边栏结束-2014-12-22-->
+
+
+
+
+<script>
+seajs.use(['$', 'cookie'], function($, Cookie){
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      var curh = $(document).scrollTop();
+      if(curh > 300) {
+      $('.quick_item').fadeIn(100);
+      }else{
+      $('.quick_item').fadeOut(100);
+      }
+    });
+    $('.quick_item_back').click(function(){
+    $('html, body').animate({scrollTop:0}, 'slow');});
+
+    // 圣诞节代码 start
+    // if(Cookie.get('shendan_show') != 1) {
+    //   $('.shengdanjie_tanchu_area').show();
+    // }
+    // $('.shengdanjie_tanchu_close, .shengdanjie_tanchu_know').click(function(){
+    //   $('.shengdanjie_tanchu_area').hide();
+    //   Cookie.set('shendan_show', 1);
+    // });
+    // $('.shengdanjie_leftbar_close').click(function(){
+    //   $('.shengdanjie_leftbar').hide();
+    // });
+    // 圣诞节代码 end
+  });
+});
+</script>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30089631'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30089631' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_30089631"></span><script src="./绿色呼吸pm25.com, PM2.5(细颗粒物)及空气质量指数(AQI)实时查询！_绿色呼吸_files/c.php" type="text/javascript"></script>
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb3de58f8471ab2214a3e7d885a987266' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./绿色呼吸pm25.com, PM2.5(细颗粒物)及空气质量指数(AQI)实时查询！_绿色呼吸_files/h.js" type="text/javascript"></script></div><style>
+.autocomplete-suggestions{position:absolute; z-index:50; background-color:#fff; width:200px;box-shadow:0 1px 5px rgba(0,0,0,.2);-moz-box-shadow:0 1px 5px rgba(0,0,0,.2);-webkit-box-shadow:0 1px 5px rgba(0,0,0,.2);-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px; overflow-x:hidden;margin-top:5px;}
+.autocomplete-suggestion{}
+.autocomplete-suggestion a{display:block;line-height:30px; text-indent:5px; border-bottom:#ececec solid 1px; margin:0px 10px;}
+.autocomplete-suggestion a:hover{color:#4a9828; background-color:#ececec;}
+.minicity {right: -900px;}
+</style>
+<!--侧边城市弹出-->
+<link href="./绿色呼吸pm25.com, PM2.5(细颗粒物)及空气质量指数(AQI)实时查询！_绿色呼吸_files/tinyscrollbar.css" rel="stylesheet" type="text/css">
+<div id="scrollbar1" class="minicity ui-switchable" style="display:block;" data-widget-cid="widget-0">
+    <div class="minicity_title">
+           <a class="mt_close"><i></i></a>
+           <p>
+                <span class="minicity_title_wenzi">选择城市</span>
+                <a href="http://www.pm25.com/map.html" class="mt_maplink" target="_blank">进入地图模式&gt;&gt;</a>
+           </p>
+    </div>
+    <div class="scrollbar" style="height: 173px;"><div class="track" style="height: 173px;"><div class="thumb" style="top: 0px; height: 18.1181px;"><div class="end"></div></div></div></div>
+    <div class="minicity_content viewport" style="height: 173px;">
+        <div class="overview ui-switchable-content" style="top: 0px;">
+              <!--工具条上方的热门城市部分内容-->
+              <div class="hot_city">
+                        <div class="city_default">
+                                <p class="city_default_one">
+                                  <span>当前城市：</span><i class="current_city">北京</i>
+                                  <a href="http://www.pm25.com/city/beijing.html#" class="city_default_shezhi " city="北京" citypy="beijing">设置为默认城市</a>
+                                </p>
+                                <p class="city_default_two" style="display:none; ">
+                                  <span style="font-weight:normal;">默认城市：</span>
+                                  <a href="http://www.pm25.com/city/beijing.html" class="default_city"></a>
+                                  <a href="javascript:void(0)" class="city_default_shanchu">[删除]</a>
+                                </p>
+                                <div class="clear"></div>
+                        </div>
+                          <dl>
+                               <dt>热门城市:</dt>
+                                <dd>
+                                  <a href="http://www.pm25.com/city/beijing.html">北京</a>
+                                  <a href="http://www.pm25.com/city/shanghai.html">上海</a>
+                                  <a href="http://www.pm25.com/city/guangzhou.html">广州</a>
+                                  <a href="http://www.pm25.com/city/shenzhen.html">深圳</a>
+                                  <a href="http://www.pm25.com/city/hangzhou.html">杭州</a>
+                                  <a href="http://www.pm25.com/city/tianjin.html">天津</a>
+                                  <a href="http://www.pm25.com/city/chengdu.html">成都</a>
+                                  <a href="http://www.pm25.com/city/nanjing.html">南京</a>
+                                  <a href="http://www.pm25.com/city/xian.html">西安</a>
+                                  <a href="http://www.pm25.com/city/wuhan.html">武汉</a>
+                                </dd>
+                                
+                         </dl>
+                         <div class="clear"></div>
+                         <dl>
+                               <dt>最近访问:</dt>
+                               <dd>
+                                                               <a href="http://www.pm25.com/city/beijing.html">北京</a>
+                                                              </dd>
+
+                         </dl>
+                         <div class="clear"></div>
+               </div>
+               
+               <!--筛选工具条-->
+                <div class="city_control">
+                      <div class="city_control_tab ui-switchable-nav"><!---当前是谁，就在谁上边加“city_control_current”-->
+                                <a class="city_control_current tab_pc ui-switchable-trigger" href="javascript:void(0)">按省份</a>
+                                <a class="tab_fc ui-switchable-trigger" href="javascript:void(0)">按城市</a>
+                      </div>
+                      <div class="c_search">
+                                <div class="search_city">
+                                          <input type="text" value="" placeholder="输入城市名" class="search_city_text" id="autocomplete" autocomplete="off">
+                                          <input type="button" class="search_btn search_btn_active">
+                                          <div class="clear"></div>
+                                 </div>
+                                <!--即时显示搜索结果-->
+                                 <div class="search_result_width" style="display:none;">
+                                           <ul class="search_result">
+                                                   <li><a href="http://www.pm25.com/city/beijing.html">保定</a></li>
+                                                   <li><a href="http://www.pm25.com/city/beijing.html">北京</a></li>
+                                                   <li><a href="http://www.pm25.com/city/beijing.html">包头</a></li>
+                                                   <li><a href="http://www.pm25.com/city/beijing.html">宝鸡</a></li>
+                                            </ul>
+                                  </div>
+                        </div>
+                        <div class="clear"></div>
+                        <!-- <div class="city_control_A-Z pc_a_z">
+                                <a href="">A</a>
+                                <a href="">F</a>
+                                <a href="">G</a>
+                                <a href="">H</a>
+                                <a href="">J</a>
+                                <a href="">L</a>
+                                <a href="">N</a>
+                                <a href="">Q</a>
+                                <a href="">S</a>
+                                <a href="">X</a>
+                                <a href="">Y</a>
+                                <a href="">Z</a>
+                                <a href="">直辖市</a>
+                                <a href="">港澳台</a>
+                        </div> -->
+                        <!-- <div class="city_control_A-Z fc_a_z hide">
+                                <a href="javascript:void(0);">A</a>
+                                <a href="javascript:void(0);">B</a>
+                                <a href="javascript:void(0);">C</a>
+                                <a href="javascript:void(0);">D</a>
+                                <a href="javascript:void(0);">E</a>
+                                <a href="javascript:void(0);">F</a>
+                                <a href="javascript:void(0);">G</a>
+                                <a href="javascript:void(0);">H</a>
+                                <a href="javascript:void(0);">J</a>
+                                <a href="javascript:void(0);">K</a>
+                                <a href="javascript:void(0);">L</a>
+                                <a href="javascript:void(0);">M</a>
+                                <a href="javascript:void(0);">N</a>
+                                <a href="javascript:void(0);">P</a>
+                                <a href="javascript:void(0);">Q</a>
+                                <a href="javascript:void(0);">R</a>
+                                <a href="javascript:void(0);">S</a>
+                                <a href="javascript:void(0);">T</a>
+                                <a href="javascript:void(0);">W</a>
+                                <a href="javascript:void(0);">X</a>
+                                <a href="javascript:void(0);">Y</a>
+                                <a href="javascript:void(0);">Z</a>
+                                <a href="">直辖市</a>
+                                <a href="">港澳台</a>
+                        </div> -->
+                 </div>
+                 <!---按省份数据显示-->
+                 <div class="city_province ui-switchable-panel" style="display:block;">
+                                                                <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>安徽</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/hefei.html">合肥</a>
+                                                                              <a href="http://www.pm25.com/city/wuhu.html">芜湖</a>
+                                                                              <a href="http://www.pm25.com/city/maanshan.html">马鞍山</a>
+                                                                              <a href="http://www.pm25.com/city/anqing.html">安庆</a>
+                                                                              <a href="http://www.pm25.com/city/bozhou.html">亳州</a>
+                                                                              <a href="http://www.pm25.com/city/bengbu.html">蚌埠</a>
+                                                                              <a href="http://www.pm25.com/city/chuzhou.html">滁州</a>
+                                                                              <a href="http://www.pm25.com/city/chaohu.html">巢湖</a>
+                                                                              <a href="http://www.pm25.com/city/chizhou.html">池州</a>
+                                                                              <a href="http://www.pm25.com/city/huaibei.html">淮北</a>
+                                                                              <a href="http://www.pm25.com/city/huainan.html">淮南</a>
+                                                                              <a href="http://www.pm25.com/city/huangshan.html">黄山</a>
+                                                                              <a href="http://www.pm25.com/city/huangshanfengjingqu.html">黄山风景区</a>
+                                                                              <a href="http://www.pm25.com/city/jiuhuashanfengjingqu.html">九华山风景区</a>
+                                                                              <a href="http://www.pm25.com/city/tongling.html">铜陵</a>
+                                                                              <a href="http://www.pm25.com/city/fuyangshi.html">阜阳</a>
+                                                                              <a href="http://www.pm25.com/city/suzhoushi.html">宿州</a>
+                                                                              <a href="http://www.pm25.com/city/xuancheng.html">宣城</a>
+                                                                              <a href="http://www.pm25.com/city/liuan.html">六安</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>福建</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/xiamen.html">厦门</a>
+                                                                              <a href="http://www.pm25.com/city/quanzhou.html">泉州</a>
+                                                                              <a href="http://www.pm25.com/city/fuzhou.html">福州</a>
+                                                                              <a href="http://www.pm25.com/city/longyan.html">龙岩</a>
+                                                                              <a href="http://www.pm25.com/city/nanping.html">南平</a>
+                                                                              <a href="http://www.pm25.com/city/putian.html">莆田</a>
+                                                                              <a href="http://www.pm25.com/city/sanming.html">三明</a>
+                                                                              <a href="http://www.pm25.com/city/zhangzhou.html">漳州</a>
+                                                                              <a href="http://www.pm25.com/city/ningde.html">宁德</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>广东</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/dongguan.html">东莞</a>
+                                                                              <a href="http://www.pm25.com/city/zhongshan.html">中山</a>
+                                                                              <a href="http://www.pm25.com/city/yunfu.html">云浮</a>
+                                                                              <a href="http://www.pm25.com/city/foshan.html">佛山</a>
+                                                                              <a href="http://www.pm25.com/city/guangzhou.html">广州</a>
+                                                                              <a href="http://www.pm25.com/city/huizhou.html">惠州</a>
+                                                                              <a href="http://www.pm25.com/city/jieyang.html">揭阳</a>
+                                                                              <a href="http://www.pm25.com/city/meizhou.html">梅州</a>
+                                                                              <a href="http://www.pm25.com/city/shantou.html">汕头</a>
+                                                                              <a href="http://www.pm25.com/city/shanwei.html">汕尾</a>
+                                                                              <a href="http://www.pm25.com/city/jiangmen.html">江门</a>
+                                                                              <a href="http://www.pm25.com/city/heyuan.html">河源</a>
+                                                                              <a href="http://www.pm25.com/city/shenzhen.html">深圳</a>
+                                                                              <a href="http://www.pm25.com/city/qingyuan.html">清远</a>
+                                                                              <a href="http://www.pm25.com/city/zhanjiang.html">湛江</a>
+                                                                              <a href="http://www.pm25.com/city/chaozhou.html">潮州</a>
+                                                                              <a href="http://www.pm25.com/city/zhuhai.html">珠海</a>
+                                                                              <a href="http://www.pm25.com/city/zhaoqing.html">肇庆</a>
+                                                                              <a href="http://www.pm25.com/city/maoming.html">茂名</a>
+                                                                              <a href="http://www.pm25.com/city/yangjiang.html">阳江</a>
+                                                                              <a href="http://www.pm25.com/city/shaoguan.html">韶关</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>甘肃</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/lanzhou.html">兰州</a>
+                                                                              <a href="http://www.pm25.com/city/jiayuguan.html">嘉峪关</a>
+                                                                              <a href="http://www.pm25.com/city/jinchang.html">金昌</a>
+                                                                              <a href="http://www.pm25.com/city/baiyin.html">白银</a>
+                                                                              <a href="http://www.pm25.com/city/tianshui.html">天水</a>
+                                                                              <a href="http://www.pm25.com/city/qingyang.html">庆阳</a>
+                                                                              <a href="http://www.pm25.com/city/pingliang.html">平凉</a>
+                                                                              <a href="http://www.pm25.com/city/longnan.html">陇南</a>
+                                                                              <a href="http://www.pm25.com/city/dingxi.html">定西</a>
+                                                                              <a href="http://www.pm25.com/city/wuwei.html">武威</a>
+                                                                              <a href="http://www.pm25.com/city/zhangye.html">张掖</a>
+                                                                              <a href="http://www.pm25.com/city/jiuquan.html">酒泉</a>
+                                                                              <a href="http://www.pm25.com/city/linxiazhou.html">临夏州</a>
+                                                                              <a href="http://www.pm25.com/city/gannanzhou.html">甘南州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>广西</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/beihai.html">北海</a>
+                                                                              <a href="http://www.pm25.com/city/nanning.html">南宁</a>
+                                                                              <a href="http://www.pm25.com/city/liuzhou.html">柳州</a>
+                                                                              <a href="http://www.pm25.com/city/guilin.html">桂林</a>
+                                                                              <a href="http://www.pm25.com/city/chongzuo.html">崇左</a>
+                                                                              <a href="http://www.pm25.com/city/laibin.html">来宾</a>
+                                                                              <a href="http://www.pm25.com/city/hechi.html">河池</a>
+                                                                              <a href="http://www.pm25.com/city/hezhou.html">贺州</a>
+                                                                              <a href="http://www.pm25.com/city/baise.html">百色</a>
+                                                                              <a href="http://www.pm25.com/city/qinzhou.html">钦州</a>
+                                                                              <a href="http://www.pm25.com/city/guigang.html">贵港</a>
+                                                                              <a href="http://www.pm25.com/city/fangchenggang.html">防城港</a>
+                                                                              <a href="http://www.pm25.com/city/wuzhou.html">梧州</a>
+                                                                              <a href="http://www.pm25.com/city/yulinshi.html">玉林</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>贵州</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/guiyang.html">贵阳</a>
+                                                                              <a href="http://www.pm25.com/city/zunyi.html">遵义</a>
+                                                                              <a href="http://www.pm25.com/city/qiandongnanzhou.html">黔东南州</a>
+                                                                              <a href="http://www.pm25.com/city/qiannanzhou.html">黔南州</a>
+                                                                              <a href="http://www.pm25.com/city/qianxinanzhou.html">黔西南州</a>
+                                                                              <a href="http://www.pm25.com/city/bijie.html">毕节</a>
+                                                                              <a href="http://www.pm25.com/city/tongren.html">铜仁</a>
+                                                                              <a href="http://www.pm25.com/city/anshun.html">安顺</a>
+                                                                              <a href="http://www.pm25.com/city/liupanshui.html">六盘水</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>海南</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/sanya.html">三亚</a>
+                                                                              <a href="http://www.pm25.com/city/haikou.html">海口</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>河南</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/sanmenxia.html">三门峡</a>
+                                                                              <a href="http://www.pm25.com/city/anyang.html">安阳</a>
+                                                                              <a href="http://www.pm25.com/city/pingdingshan.html">平顶山</a>
+                                                                              <a href="http://www.pm25.com/city/kaifeng.html">开封</a>
+                                                                              <a href="http://www.pm25.com/city/luoyang.html">洛阳</a>
+                                                                              <a href="http://www.pm25.com/city/jiaozuo.html">焦作</a>
+                                                                              <a href="http://www.pm25.com/city/zhengzhou.html">郑州</a>
+                                                                              <a href="http://www.pm25.com/city/hebi.html">鹤壁</a>
+                                                                              <a href="http://www.pm25.com/city/luohe.html">漯河</a>
+                                                                              <a href="http://www.pm25.com/city/nanyang.html">南阳</a>
+                                                                              <a href="http://www.pm25.com/city/puyang.html">濮阳</a>
+                                                                              <a href="http://www.pm25.com/city/shangqiu.html">商丘</a>
+                                                                              <a href="http://www.pm25.com/city/xinxiang.html">新乡</a>
+                                                                              <a href="http://www.pm25.com/city/xuchang.html">许昌</a>
+                                                                              <a href="http://www.pm25.com/city/xinyang.html">信阳</a>
+                                                                              <a href="http://www.pm25.com/city/zhoukou.html">周口</a>
+                                                                              <a href="http://www.pm25.com/city/zhumadian.html">驻马店</a>
+                                                                              <a href="http://www.pm25.com/city/jiyuan.html">济源</a>
+                                                                              <a href="http://www.pm25.com/city/gongyi.html">巩义</a>
+                                                                              <a href="http://www.pm25.com/city/lankaoxian.html">兰考县</a>
+                                                                              <a href="http://www.pm25.com/city/ruzhou.html">汝州</a>
+                                                                              <a href="http://www.pm25.com/city/huaxian.html">滑县</a>
+                                                                              <a href="http://www.pm25.com/city/changyuanxian.html">长垣县</a>
+                                                                              <a href="http://www.pm25.com/city/dengzhou.html">邓州</a>
+                                                                              <a href="http://www.pm25.com/city/gushixian.html">固始县</a>
+                                                                              <a href="http://www.pm25.com/city/luyixian.html">鹿邑县</a>
+                                                                              <a href="http://www.pm25.com/city/xincaixian.html">新蔡县</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>河北</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/baoding.html">保定</a>
+                                                                              <a href="http://www.pm25.com/city/tangshan.html">唐山</a>
+                                                                              <a href="http://www.pm25.com/city/langfang.html">廊坊</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiakou.html">张家口</a>
+                                                                              <a href="http://www.pm25.com/city/chengde.html">承德</a>
+                                                                              <a href="http://www.pm25.com/city/cangzhou.html">沧州</a>
+                                                                              <a href="http://www.pm25.com/city/shijiazhuang.html">石家庄</a>
+                                                                              <a href="http://www.pm25.com/city/qinhuangdao.html">秦皇岛</a>
+                                                                              <a href="http://www.pm25.com/city/hengshui.html">衡水</a>
+                                                                              <a href="http://www.pm25.com/city/xingtai.html">邢台</a>
+                                                                              <a href="http://www.pm25.com/city/handan.html">邯郸</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>黑龙江</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/haerbin.html">哈尔滨</a>
+                                                                              <a href="http://www.pm25.com/city/daqing.html">大庆</a>
+                                                                              <a href="http://www.pm25.com/city/mudanjiang.html">牡丹江</a>
+                                                                              <a href="http://www.pm25.com/city/qiqihaer.html">齐齐哈尔</a>
+                                                                              <a href="http://www.pm25.com/city/jixi.html">鸡西</a>
+                                                                              <a href="http://www.pm25.com/city/hegang.html">鹤岗</a>
+                                                                              <a href="http://www.pm25.com/city/shuangyashan.html">双鸭山</a>
+                                                                              <a href="http://www.pm25.com/city/jiamusi.html">佳木斯</a>
+                                                                              <a href="http://www.pm25.com/city/qitaihe.html">七台河</a>
+                                                                              <a href="http://www.pm25.com/city/heihe.html">黑河</a>
+                                                                              <a href="http://www.pm25.com/city/suihua.html">绥化</a>
+                                                                              <a href="http://www.pm25.com/city/daxinganling.html">大兴安岭</a>
+                                                                              <a href="http://www.pm25.com/city/yichunshi.html">伊春</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>湖北</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/yichang.html">宜昌</a>
+                                                                              <a href="http://www.pm25.com/city/wuhan.html">武汉</a>
+                                                                              <a href="http://www.pm25.com/city/jingzhou.html">荆州</a>
+                                                                              <a href="http://www.pm25.com/city/huanggang.html">黄冈</a>
+                                                                              <a href="http://www.pm25.com/city/suizhou.html">随州</a>
+                                                                              <a href="http://www.pm25.com/city/xiangyang.html">襄阳</a>
+                                                                              <a href="http://www.pm25.com/city/jingmen.html">荆门</a>
+                                                                              <a href="http://www.pm25.com/city/xiantao.html">仙桃</a>
+                                                                              <a href="http://www.pm25.com/city/qianjiang.html">潜江</a>
+                                                                              <a href="http://www.pm25.com/city/huangshi.html">黄石</a>
+                                                                              <a href="http://www.pm25.com/city/shiyan.html">十堰</a>
+                                                                              <a href="http://www.pm25.com/city/ezhou.html">鄂州</a>
+                                                                              <a href="http://www.pm25.com/city/xiaogan.html">孝感</a>
+                                                                              <a href="http://www.pm25.com/city/xianning.html">咸宁</a>
+                                                                              <a href="http://www.pm25.com/city/xiangfan.html">襄樊</a>
+                                                                              <a href="http://www.pm25.com/city/enshizhou.html">恩施州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>湖南</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/yueyang.html">岳阳</a>
+                                                                              <a href="http://www.pm25.com/city/changde.html">常德</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiajie.html">张家界</a>
+                                                                              <a href="http://www.pm25.com/city/zhuzhou.html">株洲</a>
+                                                                              <a href="http://www.pm25.com/city/xiangtan.html">湘潭</a>
+                                                                              <a href="http://www.pm25.com/city/changsha.html">长沙</a>
+                                                                              <a href="http://www.pm25.com/city/xiangxizhou.html">湘西州</a>
+                                                                              <a href="http://www.pm25.com/city/loudi.html">娄底</a>
+                                                                              <a href="http://www.pm25.com/city/huaihua.html">怀化</a>
+                                                                              <a href="http://www.pm25.com/city/yongzhou.html">永州</a>
+                                                                              <a href="http://www.pm25.com/city/chenzhou.html">郴州</a>
+                                                                              <a href="http://www.pm25.com/city/yiyang.html">益阳</a>
+                                                                              <a href="http://www.pm25.com/city/shaoyang.html">邵阳</a>
+                                                                              <a href="http://www.pm25.com/city/hengyang.html">衡阳</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>江西</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/jiujiang.html">九江</a>
+                                                                              <a href="http://www.pm25.com/city/nanchang.html">南昌</a>
+                                                                              <a href="http://www.pm25.com/city/fuzhoushi.html">抚州</a>
+                                                                              <a href="http://www.pm25.com/city/ganzhou.html">赣州</a>
+                                                                              <a href="http://www.pm25.com/city/jian.html">吉安</a>
+                                                                              <a href="http://www.pm25.com/city/jingdezhen.html">景德镇</a>
+                                                                              <a href="http://www.pm25.com/city/pingxiang.html">萍乡</a>
+                                                                              <a href="http://www.pm25.com/city/shangrao.html">上饶</a>
+                                                                              <a href="http://www.pm25.com/city/xinyu.html">新余</a>
+                                                                              <a href="http://www.pm25.com/city/yichun.html">宜春</a>
+                                                                              <a href="http://www.pm25.com/city/yingtan.html">鹰潭</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>江苏</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/nanjing.html">南京</a>
+                                                                              <a href="http://www.pm25.com/city/nantong.html">南通</a>
+                                                                              <a href="http://www.pm25.com/city/jurong.html">句容</a>
+                                                                              <a href="http://www.pm25.com/city/wujiang.html">吴江</a>
+                                                                              <a href="http://www.pm25.com/city/taicang.html">太仓</a>
+                                                                              <a href="http://www.pm25.com/city/yixing.html">宜兴</a>
+                                                                              <a href="http://www.pm25.com/city/suqian.html">宿迁</a>
+                                                                              <a href="http://www.pm25.com/city/changzhou.html">常州</a>
+                                                                              <a href="http://www.pm25.com/city/changshu.html">常熟</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiagang.html">张家港</a>
+                                                                              <a href="http://www.pm25.com/city/xuzhou.html">徐州</a>
+                                                                              <a href="http://www.pm25.com/city/yangzhou.html">扬州</a>
+                                                                              <a href="http://www.pm25.com/city/wuxi.html">无锡</a>
+                                                                              <a href="http://www.pm25.com/city/kunshan.html">昆山</a>
+                                                                              <a href="http://www.pm25.com/city/jiangyin.html">江阴</a>
+                                                                              <a href="http://www.pm25.com/city/taizhoushi.html">泰州</a>
+                                                                              <a href="http://www.pm25.com/city/haimen.html">海门</a>
+                                                                              <a href="http://www.pm25.com/city/huaian.html">淮安</a>
+                                                                              <a href="http://www.pm25.com/city/liyang.html">溧阳</a>
+                                                                              <a href="http://www.pm25.com/city/yancheng.html">盐城</a>
+                                                                              <a href="http://www.pm25.com/city/suzhou.html">苏州</a>
+                                                                              <a href="http://www.pm25.com/city/lianyungang.html">连云港</a>
+                                                                              <a href="http://www.pm25.com/city/jintan.html">金坛</a>
+                                                                              <a href="http://www.pm25.com/city/zhenjiang.html">镇江</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>吉林</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/jilin.html">吉林</a>
+                                                                              <a href="http://www.pm25.com/city/changchun.html">长春</a>
+                                                                              <a href="http://www.pm25.com/city/songyuan.html">松原</a>
+                                                                              <a href="http://www.pm25.com/city/liaoyuan.html">辽源</a>
+                                                                              <a href="http://www.pm25.com/city/siping.html">四平</a>
+                                                                              <a href="http://www.pm25.com/city/baishan.html">白山</a>
+                                                                              <a href="http://www.pm25.com/city/baicheng.html">白城</a>
+                                                                              <a href="http://www.pm25.com/city/yanbianzhou.html">延边州</a>
+                                                                              <a href="http://www.pm25.com/city/tonghua.html">通化</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>辽宁</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/dandong.html">丹东</a>
+                                                                              <a href="http://www.pm25.com/city/dalian.html">大连</a>
+                                                                              <a href="http://www.pm25.com/city/fushun.html">抚顺</a>
+                                                                              <a href="http://www.pm25.com/city/benxi.html">本溪</a>
+                                                                              <a href="http://www.pm25.com/city/shenyang.html">沈阳</a>
+                                                                              <a href="http://www.pm25.com/city/wafangdian.html">瓦房店</a>
+                                                                              <a href="http://www.pm25.com/city/panjin.html">盘锦</a>
+                                                                              <a href="http://www.pm25.com/city/yingkou.html">营口</a>
+                                                                              <a href="http://www.pm25.com/city/huludao.html">葫芦岛</a>
+                                                                              <a href="http://www.pm25.com/city/jinzhou.html">锦州</a>
+                                                                              <a href="http://www.pm25.com/city/anshan.html">鞍山</a>
+                                                                              <a href="http://www.pm25.com/city/chaoyang.html">朝阳</a>
+                                                                              <a href="http://www.pm25.com/city/fuxin.html">阜新</a>
+                                                                              <a href="http://www.pm25.com/city/liaoyang.html">辽阳</a>
+                                                                              <a href="http://www.pm25.com/city/tieling.html">铁岭</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>内蒙古</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/baotou.html">包头</a>
+                                                                              <a href="http://www.pm25.com/city/huhehaote.html">呼和浩特</a>
+                                                                              <a href="http://www.pm25.com/city/chifeng.html">赤峰</a>
+                                                                              <a href="http://www.pm25.com/city/eerduosi.html">鄂尔多斯</a>
+                                                                              <a href="http://www.pm25.com/city/bayannaoer.html">巴彦淖尔</a>
+                                                                              <a href="http://www.pm25.com/city/erlianhaote.html">二连浩特</a>
+                                                                              <a href="http://www.pm25.com/city/hulunbeier.html">呼伦贝尔</a>
+                                                                              <a href="http://www.pm25.com/city/tongliao.html">通辽</a>
+                                                                              <a href="http://www.pm25.com/city/wuhai.html">乌海</a>
+                                                                              <a href="http://www.pm25.com/city/wulanchabu.html">乌兰察布</a>
+                                                                              <a href="http://www.pm25.com/city/wulanhaote.html">乌兰浩特</a>
+                                                                              <a href="http://www.pm25.com/city/xilinhaote.html">锡林浩特</a>
+                                                                              <a href="http://www.pm25.com/city/bayanhaote.html">巴彦浩特</a>
+                                                                              <a href="http://www.pm25.com/city/manzhouli.html">满洲里</a>
+                                                                              <a href="http://www.pm25.com/city/alashanmeng.html">阿拉善盟</a>
+                                                                              <a href="http://www.pm25.com/city/xinganmeng.html">兴安盟</a>
+                                                                              <a href="http://www.pm25.com/city/xilinguolemeng.html">锡林郭勒盟</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>宁夏</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/shizuishan.html">石嘴山</a>
+                                                                              <a href="http://www.pm25.com/city/yinchuan.html">银川</a>
+                                                                              <a href="http://www.pm25.com/city/zhongwei.html">中卫</a>
+                                                                              <a href="http://www.pm25.com/city/wuzhong.html">吴忠</a>
+                                                                              <a href="http://www.pm25.com/city/guyuan.html">固原</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>青海</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/xining.html">西宁</a>
+                                                                              <a href="http://www.pm25.com/city/hainanzhou.html">海南州</a>
+                                                                              <a href="http://www.pm25.com/city/huangnanzhou.html">黄南州</a>
+                                                                              <a href="http://www.pm25.com/city/haibeizhou.html">海北州</a>
+                                                                              <a href="http://www.pm25.com/city/haidong.html">海东</a>
+                                                                              <a href="http://www.pm25.com/city/guoluozhou.html">果洛州</a>
+                                                                              <a href="http://www.pm25.com/city/yushuzhou.html">玉树州</a>
+                                                                              <a href="http://www.pm25.com/city/haixizhou.html">海西州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>上海</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/shanghai.html">上海</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>山东</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/dongying.html">东营</a>
+                                                                              <a href="http://www.pm25.com/city/linyi.html">临沂</a>
+                                                                              <a href="http://www.pm25.com/city/rushan.html">乳山</a>
+                                                                              <a href="http://www.pm25.com/city/jimo.html">即墨</a>
+                                                                              <a href="http://www.pm25.com/city/weihai.html">威海</a>
+                                                                              <a href="http://www.pm25.com/city/shouguang.html">寿光</a>
+                                                                              <a href="http://www.pm25.com/city/pingdu.html">平度</a>
+                                                                              <a href="http://www.pm25.com/city/dezhou.html">德州</a>
+                                                                              <a href="http://www.pm25.com/city/zhaoyuan.html">招远</a>
+                                                                              <a href="http://www.pm25.com/city/wendeng.html">文登</a>
+                                                                              <a href="http://www.pm25.com/city/rizhao.html">日照</a>
+                                                                              <a href="http://www.pm25.com/city/zaozhuang.html">枣庄</a>
+                                                                              <a href="http://www.pm25.com/city/taian.html">泰安</a>
+                                                                              <a href="http://www.pm25.com/city/jinan.html">济南</a>
+                                                                              <a href="http://www.pm25.com/city/jining.html">济宁</a>
+                                                                              <a href="http://www.pm25.com/city/zibo.html">淄博</a>
+                                                                              <a href="http://www.pm25.com/city/binzhou.html">滨州</a>
+                                                                              <a href="http://www.pm25.com/city/weifang.html">潍坊</a>
+                                                                              <a href="http://www.pm25.com/city/yantai.html">烟台</a>
+                                                                              <a href="http://www.pm25.com/city/zhangqiu.html">章丘</a>
+                                                                              <a href="http://www.pm25.com/city/liaocheng.html">聊城</a>
+                                                                              <a href="http://www.pm25.com/city/jiaonan.html">胶南</a>
+                                                                              <a href="http://www.pm25.com/city/jiaozhou.html">胶州</a>
+                                                                              <a href="http://www.pm25.com/city/rongcheng.html">荣成</a>
+                                                                              <a href="http://www.pm25.com/city/laizhou.html">莱州</a>
+                                                                              <a href="http://www.pm25.com/city/laiwu.html">莱芜</a>
+                                                                              <a href="http://www.pm25.com/city/laixi.html">莱西</a>
+                                                                              <a href="http://www.pm25.com/city/heze.html">菏泽</a>
+                                                                              <a href="http://www.pm25.com/city/penglai.html">蓬莱</a>
+                                                                              <a href="http://www.pm25.com/city/qingdao.html">青岛</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>山西</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/linfen.html">临汾</a>
+                                                                              <a href="http://www.pm25.com/city/datong.html">大同</a>
+                                                                              <a href="http://www.pm25.com/city/taiyuan.html">太原</a>
+                                                                              <a href="http://www.pm25.com/city/changzhi.html">长治</a>
+                                                                              <a href="http://www.pm25.com/city/yangquan.html">阳泉</a>
+                                                                              <a href="http://www.pm25.com/city/jincheng.html">晋城</a>
+                                                                              <a href="http://www.pm25.com/city/jinzhong.html">晋中</a>
+                                                                              <a href="http://www.pm25.com/city/lvliang.html">吕梁</a>
+                                                                              <a href="http://www.pm25.com/city/shuozhou.html">朔州</a>
+                                                                              <a href="http://www.pm25.com/city/xinzhou.html">忻州</a>
+                                                                              <a href="http://www.pm25.com/city/yuncheng.html">运城</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>四川</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/nanchong.html">南充</a>
+                                                                              <a href="http://www.pm25.com/city/yibin.html">宜宾</a>
+                                                                              <a href="http://www.pm25.com/city/deyang.html">德阳</a>
+                                                                              <a href="http://www.pm25.com/city/chengdu.html">成都</a>
+                                                                              <a href="http://www.pm25.com/city/panzhihua.html">攀枝花</a>
+                                                                              <a href="http://www.pm25.com/city/luzhou.html">泸州</a>
+                                                                              <a href="http://www.pm25.com/city/mianyang.html">绵阳</a>
+                                                                              <a href="http://www.pm25.com/city/zigong.html">自贡</a>
+                                                                              <a href="http://www.pm25.com/city/bazhong.html">巴中</a>
+                                                                              <a href="http://www.pm25.com/city/dazhou.html">达州</a>
+                                                                              <a href="http://www.pm25.com/city/guangan.html">广安</a>
+                                                                              <a href="http://www.pm25.com/city/guangyuan.html">广元</a>
+                                                                              <a href="http://www.pm25.com/city/neijiang.html">内江</a>
+                                                                              <a href="http://www.pm25.com/city/suining.html">遂宁</a>
+                                                                              <a href="http://www.pm25.com/city/leshan.html">乐山</a>
+                                                                              <a href="http://www.pm25.com/city/yaan.html">雅安</a>
+                                                                              <a href="http://www.pm25.com/city/ziyang.html">资阳</a>
+                                                                              <a href="http://www.pm25.com/city/dujiangyan.html">都江堰</a>
+                                                                              <a href="http://www.pm25.com/city/maerkang.html">马尔康</a>
+                                                                              <a href="http://www.pm25.com/city/liangzhong.html">阆中</a>
+                                                                              <a href="http://www.pm25.com/city/emeishan.html">峨眉山</a>
+                                                                              <a href="http://www.pm25.com/city/meishan.html">眉山</a>
+                                                                              <a href="http://www.pm25.com/city/xichang.html">西昌</a>
+                                                                              <a href="http://www.pm25.com/city/kangding.html">康定</a>
+                                                                              <a href="http://www.pm25.com/city/jiangyou.html">江油</a>
+                                                                              <a href="http://www.pm25.com/city/liangshanzhou.html">凉山州</a>
+                                                                              <a href="http://www.pm25.com/city/ganzizhou.html">甘孜州</a>
+                                                                              <a href="http://www.pm25.com/city/abazhou.html">阿坝州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>陕西</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/xianyang.html">咸阳</a>
+                                                                              <a href="http://www.pm25.com/city/baoji.html">宝鸡</a>
+                                                                              <a href="http://www.pm25.com/city/yanan.html">延安</a>
+                                                                              <a href="http://www.pm25.com/city/weinan.html">渭南</a>
+                                                                              <a href="http://www.pm25.com/city/xian.html">西安</a>
+                                                                              <a href="http://www.pm25.com/city/tongchuan.html">铜川</a>
+                                                                              <a href="http://www.pm25.com/city/hanzhong.html">汉中</a>
+                                                                              <a href="http://www.pm25.com/city/yulin.html">榆林</a>
+                                                                              <a href="http://www.pm25.com/city/ankang.html">安康</a>
+                                                                              <a href="http://www.pm25.com/city/shangluo.html">商洛</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>新疆</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/wulumuqi.html">乌鲁木齐</a>
+                                                                              <a href="http://www.pm25.com/city/kelamayi.html">克拉玛依</a>
+                                                                              <a href="http://www.pm25.com/city/kuerle.html">库尔勒</a>
+                                                                              <a href="http://www.pm25.com/city/hetian.html">和田</a>
+                                                                              <a href="http://www.pm25.com/city/yining.html">伊宁</a>
+                                                                              <a href="http://www.pm25.com/city/tulufan.html">吐鲁番</a>
+                                                                              <a href="http://www.pm25.com/city/atushi.html">阿图什</a>
+                                                                              <a href="http://www.pm25.com/city/shihezi.html">石河子</a>
+                                                                              <a href="http://www.pm25.com/city/hami.html">哈密</a>
+                                                                              <a href="http://www.pm25.com/city/kuitun.html">奎屯</a>
+                                                                              <a href="http://www.pm25.com/city/fukang.html">阜康</a>
+                                                                              <a href="http://www.pm25.com/city/wujiaqu.html">五家渠</a>
+                                                                              <a href="http://www.pm25.com/city/wusu.html">乌苏</a>
+                                                                              <a href="http://www.pm25.com/city/beitun.html">北屯</a>
+                                                                              <a href="http://www.pm25.com/city/bozhoushi.html">博州</a>
+                                                                              <a href="http://www.pm25.com/city/aletai.html">阿勒泰</a>
+                                                                              <a href="http://www.pm25.com/city/tacheng.html">塔城</a>
+                                                                              <a href="http://www.pm25.com/city/yilihasakezhou.html">伊犁哈萨克州</a>
+                                                                              <a href="http://www.pm25.com/city/kashi.html">喀什</a>
+                                                                              <a href="http://www.pm25.com/city/kezilesuzhou.html">克孜勒苏州</a>
+                                                                              <a href="http://www.pm25.com/city/akesu.html">阿克苏</a>
+                                                                              <a href="http://www.pm25.com/city/changjizhou.html">昌吉州</a>
+                                                                              <a href="http://www.pm25.com/city/bole.html">博乐</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                               <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>西藏</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/lasa.html">拉萨</a>
+                                                                              <a href="http://www.pm25.com/city/changdu.html">昌都</a>
+                                                                              <a href="http://www.pm25.com/city/naqu.html">那曲</a>
+                                                                              <a href="http://www.pm25.com/city/shannan.html">山南</a>
+                                                                              <a href="http://www.pm25.com/city/linzhi.html">林芝</a>
+                                                                              <a href="http://www.pm25.com/city/ali.html">阿里</a>
+                                                                              <a href="http://www.pm25.com/city/rikaze.html">日喀则</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>云南</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/kunming.html">昆明</a>
+                                                                              <a href="http://www.pm25.com/city/qujing.html">曲靖</a>
+                                                                              <a href="http://www.pm25.com/city/yuxi.html">玉溪</a>
+                                                                              <a href="http://www.pm25.com/city/baoshan.html">保山</a>
+                                                                              <a href="http://www.pm25.com/city/chuxiongzhou.html">楚雄州</a>
+                                                                              <a href="http://www.pm25.com/city/dalizhou.html">大理州</a>
+                                                                              <a href="http://www.pm25.com/city/lijiang.html">丽江</a>
+                                                                              <a href="http://www.pm25.com/city/lincang.html">临沧</a>
+                                                                              <a href="http://www.pm25.com/city/zhaotong.html">昭通</a>
+                                                                              <a href="http://www.pm25.com/city/wenshanzhou.html">文山州</a>
+                                                                              <a href="http://www.pm25.com/city/mengzi.html">蒙自</a>
+                                                                              <a href="http://www.pm25.com/city/jinghong.html">景洪</a>
+                                                                              <a href="http://www.pm25.com/city/luxi.html">潞西</a>
+                                                                              <a href="http://www.pm25.com/city/liuku.html">六库</a>
+                                                                              <a href="http://www.pm25.com/city/xianggelila.html">香格里拉</a>
+                                                                              <a href="http://www.pm25.com/city/diqingzhou.html">迪庆州</a>
+                                                                              <a href="http://www.pm25.com/city/nujiangzhou.html">怒江州</a>
+                                                                              <a href="http://www.pm25.com/city/dehongzhou.html">德宏州</a>
+                                                                              <a href="http://www.pm25.com/city/xishuangbannazhou.html">西双版纳州</a>
+                                                                              <a href="http://www.pm25.com/city/honghezhou.html">红河州</a>
+                                                                              <a href="http://www.pm25.com/city/simao.html">思茅</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                                                      <!--一般城市-->
+                         <div class="city_province_item">
+                               <dl>
+                                    <dt>浙江</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/linan.html">临安</a>
+                                                                              <a href="http://www.pm25.com/city/lishui.html">丽水</a>
+                                                                              <a href="http://www.pm25.com/city/yiwu.html">义乌</a>
+                                                                              <a href="http://www.pm25.com/city/taizhou.html">台州</a>
+                                                                              <a href="http://www.pm25.com/city/jiaxing.html">嘉兴</a>
+                                                                              <a href="http://www.pm25.com/city/ningbo.html">宁波</a>
+                                                                              <a href="http://www.pm25.com/city/fuyang.html">富阳</a>
+                                                                              <a href="http://www.pm25.com/city/hangzhou.html">杭州</a>
+                                                                              <a href="http://www.pm25.com/city/wenzhou.html">温州</a>
+                                                                              <a href="http://www.pm25.com/city/huzhou.html">湖州</a>
+                                                                              <a href="http://www.pm25.com/city/shaoxing.html">绍兴</a>
+                                                                              <a href="http://www.pm25.com/city/zhoushan.html">舟山</a>
+                                                                              <a href="http://www.pm25.com/city/quzhou.html">衢州</a>
+                                                                              <a href="http://www.pm25.com/city/zhuji.html">诸暨</a>
+                                                                              <a href="http://www.pm25.com/city/jinhua.html">金华</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                          <!--直辖市和港澳台是特殊的没有字母的形式-->
+                   <div class="city_province_item city_province_special">
+                         <dl>
+                              <dt class="">直辖市</dt>
+                              
+                              <dd>
+                                    <a href="http://www.pm25.com/city/beijing.html">北京</a>
+                                    <a href="http://www.pm25.com/city/tianjin.html">天津</a>
+                                    <a href="http://www.pm25.com/city/shanghai.html">上海</a>
+                                    <a href="http://www.pm25.com/city/chongqing.html">重庆</a>
+                              </dd>
+                         </dl>
+                         <div class="clear"></div>
+                   </div>
+                   <div class="city_province_item city_province_special">
+                         <dl>
+                              
+                              <dt class="">港澳台</dt>
+                              <dd>
+                                                                  <a href="http://www.pm25.com/city/xianggang.html">香港</a>
+                                                                  <a href="http://www.pm25.com/city/aomen.html">澳门</a>
+                                                                  <a href="http://www.pm25.com/city/xinbei.html">新北</a>
+                                                                  <a href="http://www.pm25.com/city/taibei.html">台北</a>
+                                                                  <a href="http://www.pm25.com/city/taoyuan.html">桃园</a>
+                                                                  <a href="http://www.pm25.com/city/xinzhu.html">新竹</a>
+                                                                  <a href="http://www.pm25.com/city/miaoli.html">苗栗</a>
+                                                                  <a href="http://www.pm25.com/city/taizhong.html">台中</a>
+                                                                  <a href="http://www.pm25.com/city/zhanghua.html">彰化</a>
+                                                                  <a href="http://www.pm25.com/city/nantou.html">南投</a>
+                                                                  <a href="http://www.pm25.com/city/yunlin.html">云林</a>
+                                                                  <a href="http://www.pm25.com/city/jiayixian.html">嘉义</a>
+                                                                  <a href="http://www.pm25.com/city/jiayi.html">嘉義</a>
+                                                                  <a href="http://www.pm25.com/city/tainan.html">台南</a>
+                                                                  <a href="http://www.pm25.com/city/gaoxiong.html">高雄</a>
+                                                                  <a href="http://www.pm25.com/city/pingdong.html">屏东</a>
+                                                                  <a href="http://www.pm25.com/city/taidong.html">台东</a>
+                                                                  <a href="http://www.pm25.com/city/hualian.html">花莲</a>
+                                                                  <a href="http://www.pm25.com/city/yilan.html">宜兰</a>
+                                                                  <a href="http://www.pm25.com/city/jinmen.html">金门</a>
+                                                                  <a href="http://www.pm25.com/city/penghu.html">澎湖</a>
+                                                                  <a href="http://www.pm25.com/city/jilong.html">基隆</a>
+                                                            </dd>
+                         </dl>
+                         <div class="clear"></div>
+                   </div>
+                 </div>
+
+               <!--按字母搜所有城市，后边增加个类"city_citys"-->
+               <div class="city_province city_citys ui-switchable-panel hide">
+                         <!--一般城市-->
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">A</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/anyang.html">安阳</a>
+                                                                              <a href="http://www.pm25.com/city/anshan.html">鞍山</a>
+                                                                              <a href="http://www.pm25.com/city/anqing.html">安庆</a>
+                                                                              <a href="http://www.pm25.com/city/atushi.html">阿图什</a>
+                                                                              <a href="http://www.pm25.com/city/aletai.html">阿勒泰</a>
+                                                                              <a href="http://www.pm25.com/city/alashanmeng.html">阿拉善盟</a>
+                                                                              <a href="http://www.pm25.com/city/akesu.html">阿克苏</a>
+                                                                              <a href="http://www.pm25.com/city/ankang.html">安康</a>
+                                                                              <a href="http://www.pm25.com/city/ali.html">阿里</a>
+                                                                              <a href="http://www.pm25.com/city/anshun.html">安顺</a>
+                                                                              <a href="http://www.pm25.com/city/abazhou.html">阿坝州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">B</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/baoding.html">保定</a>
+                                                                              <a href="http://www.pm25.com/city/baotou.html">包头</a>
+                                                                              <a href="http://www.pm25.com/city/beijing.html">北京</a>
+                                                                              <a href="http://www.pm25.com/city/beihai.html">北海</a>
+                                                                              <a href="http://www.pm25.com/city/baoji.html">宝鸡</a>
+                                                                              <a href="http://www.pm25.com/city/benxi.html">本溪</a>
+                                                                              <a href="http://www.pm25.com/city/binzhou.html">滨州</a>
+                                                                              <a href="http://www.pm25.com/city/bozhou.html">亳州</a>
+                                                                              <a href="http://www.pm25.com/city/bengbu.html">蚌埠</a>
+                                                                              <a href="http://www.pm25.com/city/bazhong.html">巴中</a>
+                                                                              <a href="http://www.pm25.com/city/baoshan.html">保山</a>
+                                                                              <a href="http://www.pm25.com/city/bayannaoer.html">巴彦淖尔</a>
+                                                                              <a href="http://www.pm25.com/city/baiyin.html">白银</a>
+                                                                              <a href="http://www.pm25.com/city/beitun.html">北屯</a>
+                                                                              <a href="http://www.pm25.com/city/bozhoushi.html">博州</a>
+                                                                              <a href="http://www.pm25.com/city/bayanhaote.html">巴彦浩特</a>
+                                                                              <a href="http://www.pm25.com/city/baishan.html">白山</a>
+                                                                              <a href="http://www.pm25.com/city/baicheng.html">白城</a>
+                                                                              <a href="http://www.pm25.com/city/bijie.html">毕节</a>
+                                                                              <a href="http://www.pm25.com/city/baise.html">百色</a>
+                                                                              <a href="http://www.pm25.com/city/bole.html">博乐</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">C</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/changzhou.html">常州</a>
+                                                                              <a href="http://www.pm25.com/city/changde.html">常德</a>
+                                                                              <a href="http://www.pm25.com/city/changshu.html">常熟</a>
+                                                                              <a href="http://www.pm25.com/city/chengdu.html">成都</a>
+                                                                              <a href="http://www.pm25.com/city/chengde.html">承德</a>
+                                                                              <a href="http://www.pm25.com/city/cangzhou.html">沧州</a>
+                                                                              <a href="http://www.pm25.com/city/chaozhou.html">潮州</a>
+                                                                              <a href="http://www.pm25.com/city/chifeng.html">赤峰</a>
+                                                                              <a href="http://www.pm25.com/city/chongqing.html">重庆</a>
+                                                                              <a href="http://www.pm25.com/city/changchun.html">长春</a>
+                                                                              <a href="http://www.pm25.com/city/changsha.html">长沙</a>
+                                                                              <a href="http://www.pm25.com/city/changzhi.html">长治</a>
+                                                                              <a href="http://www.pm25.com/city/chaoyang.html">朝阳</a>
+                                                                              <a href="http://www.pm25.com/city/chuzhou.html">滁州</a>
+                                                                              <a href="http://www.pm25.com/city/chaohu.html">巢湖</a>
+                                                                              <a href="http://www.pm25.com/city/chizhou.html">池州</a>
+                                                                              <a href="http://www.pm25.com/city/chuxiongzhou.html">楚雄州</a>
+                                                                              <a href="http://www.pm25.com/city/changdu.html">昌都</a>
+                                                                              <a href="http://www.pm25.com/city/changyuanxian.html">长垣县</a>
+                                                                              <a href="http://www.pm25.com/city/changjizhou.html">昌吉州</a>
+                                                                              <a href="http://www.pm25.com/city/chongzuo.html">崇左</a>
+                                                                              <a href="http://www.pm25.com/city/chenzhou.html">郴州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">D</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/dongguan.html">东莞</a>
+                                                                              <a href="http://www.pm25.com/city/dongying.html">东营</a>
+                                                                              <a href="http://www.pm25.com/city/dandong.html">丹东</a>
+                                                                              <a href="http://www.pm25.com/city/datong.html">大同</a>
+                                                                              <a href="http://www.pm25.com/city/daqing.html">大庆</a>
+                                                                              <a href="http://www.pm25.com/city/dalian.html">大连</a>
+                                                                              <a href="http://www.pm25.com/city/dezhou.html">德州</a>
+                                                                              <a href="http://www.pm25.com/city/deyang.html">德阳</a>
+                                                                              <a href="http://www.pm25.com/city/dazhou.html">达州</a>
+                                                                              <a href="http://www.pm25.com/city/dalizhou.html">大理州</a>
+                                                                              <a href="http://www.pm25.com/city/dingxi.html">定西</a>
+                                                                              <a href="http://www.pm25.com/city/dujiangyan.html">都江堰</a>
+                                                                              <a href="http://www.pm25.com/city/dengzhou.html">邓州</a>
+                                                                              <a href="http://www.pm25.com/city/daxinganling.html">大兴安岭</a>
+                                                                              <a href="http://www.pm25.com/city/diqingzhou.html">迪庆州</a>
+                                                                              <a href="http://www.pm25.com/city/dehongzhou.html">德宏州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">E</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/eerduosi.html">鄂尔多斯</a>
+                                                                              <a href="http://www.pm25.com/city/erlianhaote.html">二连浩特</a>
+                                                                              <a href="http://www.pm25.com/city/emeishan.html">峨眉山</a>
+                                                                              <a href="http://www.pm25.com/city/ezhou.html">鄂州</a>
+                                                                              <a href="http://www.pm25.com/city/enshizhou.html">恩施州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">F</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/foshan.html">佛山</a>
+                                                                              <a href="http://www.pm25.com/city/fuyang.html">富阳</a>
+                                                                              <a href="http://www.pm25.com/city/fushun.html">抚顺</a>
+                                                                              <a href="http://www.pm25.com/city/fuzhou.html">福州</a>
+                                                                              <a href="http://www.pm25.com/city/fuxin.html">阜新</a>
+                                                                              <a href="http://www.pm25.com/city/fuzhoushi.html">抚州</a>
+                                                                              <a href="http://www.pm25.com/city/fuyangshi.html">阜阳</a>
+                                                                              <a href="http://www.pm25.com/city/fukang.html">阜康</a>
+                                                                              <a href="http://www.pm25.com/city/fangchenggang.html">防城港</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">G</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/guangzhou.html">广州</a>
+                                                                              <a href="http://www.pm25.com/city/guilin.html">桂林</a>
+                                                                              <a href="http://www.pm25.com/city/guiyang.html">贵阳</a>
+                                                                              <a href="http://www.pm25.com/city/guangan.html">广安</a>
+                                                                              <a href="http://www.pm25.com/city/guangyuan.html">广元</a>
+                                                                              <a href="http://www.pm25.com/city/ganzhou.html">赣州</a>
+                                                                              <a href="http://www.pm25.com/city/gannanzhou.html">甘南州</a>
+                                                                              <a href="http://www.pm25.com/city/gongyi.html">巩义</a>
+                                                                              <a href="http://www.pm25.com/city/gushixian.html">固始县</a>
+                                                                              <a href="http://www.pm25.com/city/guoluozhou.html">果洛州</a>
+                                                                              <a href="http://www.pm25.com/city/guyuan.html">固原</a>
+                                                                              <a href="http://www.pm25.com/city/ganzizhou.html">甘孜州</a>
+                                                                              <a href="http://www.pm25.com/city/guigang.html">贵港</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">H</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/hefei.html">合肥</a>
+                                                                              <a href="http://www.pm25.com/city/huhehaote.html">呼和浩特</a>
+                                                                              <a href="http://www.pm25.com/city/haerbin.html">哈尔滨</a>
+                                                                              <a href="http://www.pm25.com/city/huizhou.html">惠州</a>
+                                                                              <a href="http://www.pm25.com/city/hangzhou.html">杭州</a>
+                                                                              <a href="http://www.pm25.com/city/heyuan.html">河源</a>
+                                                                              <a href="http://www.pm25.com/city/haikou.html">海口</a>
+                                                                              <a href="http://www.pm25.com/city/haimen.html">海门</a>
+                                                                              <a href="http://www.pm25.com/city/huaian.html">淮安</a>
+                                                                              <a href="http://www.pm25.com/city/huzhou.html">湖州</a>
+                                                                              <a href="http://www.pm25.com/city/heze.html">菏泽</a>
+                                                                              <a href="http://www.pm25.com/city/huludao.html">葫芦岛</a>
+                                                                              <a href="http://www.pm25.com/city/hengshui.html">衡水</a>
+                                                                              <a href="http://www.pm25.com/city/handan.html">邯郸</a>
+                                                                              <a href="http://www.pm25.com/city/hainanzhou.html">海南州</a>
+                                                                              <a href="http://www.pm25.com/city/huaibei.html">淮北</a>
+                                                                              <a href="http://www.pm25.com/city/huainan.html">淮南</a>
+                                                                              <a href="http://www.pm25.com/city/huangshan.html">黄山</a>
+                                                                              <a href="http://www.pm25.com/city/huangshanfengjingqu.html">黄山风景区</a>
+                                                                              <a href="http://www.pm25.com/city/hebi.html">鹤壁</a>
+                                                                              <a href="http://www.pm25.com/city/huanggang.html">黄冈</a>
+                                                                              <a href="http://www.pm25.com/city/hulunbeier.html">呼伦贝尔</a>
+                                                                              <a href="http://www.pm25.com/city/hetian.html">和田</a>
+                                                                              <a href="http://www.pm25.com/city/huangnanzhou.html">黄南州</a>
+                                                                              <a href="http://www.pm25.com/city/haibeizhou.html">海北州</a>
+                                                                              <a href="http://www.pm25.com/city/hami.html">哈密</a>
+                                                                              <a href="http://www.pm25.com/city/huaxian.html">滑县</a>
+                                                                              <a href="http://www.pm25.com/city/huangshi.html">黄石</a>
+                                                                              <a href="http://www.pm25.com/city/hegang.html">鹤岗</a>
+                                                                              <a href="http://www.pm25.com/city/haidong.html">海东</a>
+                                                                              <a href="http://www.pm25.com/city/heihe.html">黑河</a>
+                                                                              <a href="http://www.pm25.com/city/hanzhong.html">汉中</a>
+                                                                              <a href="http://www.pm25.com/city/haixizhou.html">海西州</a>
+                                                                              <a href="http://www.pm25.com/city/honghezhou.html">红河州</a>
+                                                                              <a href="http://www.pm25.com/city/hechi.html">河池</a>
+                                                                              <a href="http://www.pm25.com/city/hezhou.html">贺州</a>
+                                                                              <a href="http://www.pm25.com/city/huaihua.html">怀化</a>
+                                                                              <a href="http://www.pm25.com/city/hengyang.html">衡阳</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">J</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/jiujiang.html">九江</a>
+                                                                              <a href="http://www.pm25.com/city/jimo.html">即墨</a>
+                                                                              <a href="http://www.pm25.com/city/jurong.html">句容</a>
+                                                                              <a href="http://www.pm25.com/city/jilin.html">吉林</a>
+                                                                              <a href="http://www.pm25.com/city/jiaxing.html">嘉兴</a>
+                                                                              <a href="http://www.pm25.com/city/jiayuguan.html">嘉峪关</a>
+                                                                              <a href="http://www.pm25.com/city/jieyang.html">揭阳</a>
+                                                                              <a href="http://www.pm25.com/city/jiangmen.html">江门</a>
+                                                                              <a href="http://www.pm25.com/city/jiangyin.html">江阴</a>
+                                                                              <a href="http://www.pm25.com/city/jinan.html">济南</a>
+                                                                              <a href="http://www.pm25.com/city/jining.html">济宁</a>
+                                                                              <a href="http://www.pm25.com/city/jiaozuo.html">焦作</a>
+                                                                              <a href="http://www.pm25.com/city/jiaonan.html">胶南</a>
+                                                                              <a href="http://www.pm25.com/city/jiaozhou.html">胶州</a>
+                                                                              <a href="http://www.pm25.com/city/jingzhou.html">荆州</a>
+                                                                              <a href="http://www.pm25.com/city/jinhua.html">金华</a>
+                                                                              <a href="http://www.pm25.com/city/jintan.html">金坛</a>
+                                                                              <a href="http://www.pm25.com/city/jinchang.html">金昌</a>
+                                                                              <a href="http://www.pm25.com/city/jinzhou.html">锦州</a>
+                                                                              <a href="http://www.pm25.com/city/jincheng.html">晋城</a>
+                                                                              <a href="http://www.pm25.com/city/jinzhong.html">晋中</a>
+                                                                              <a href="http://www.pm25.com/city/jiuhuashanfengjingqu.html">九华山风景区</a>
+                                                                              <a href="http://www.pm25.com/city/jian.html">吉安</a>
+                                                                              <a href="http://www.pm25.com/city/jingdezhen.html">景德镇</a>
+                                                                              <a href="http://www.pm25.com/city/jiuquan.html">酒泉</a>
+                                                                              <a href="http://www.pm25.com/city/jixi.html">鸡西</a>
+                                                                              <a href="http://www.pm25.com/city/jiangyou.html">江油</a>
+                                                                              <a href="http://www.pm25.com/city/jiyuan.html">济源</a>
+                                                                              <a href="http://www.pm25.com/city/jinghong.html">景洪</a>
+                                                                              <a href="http://www.pm25.com/city/jingmen.html">荆门</a>
+                                                                              <a href="http://www.pm25.com/city/jiamusi.html">佳木斯</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">K</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/kelamayi.html">克拉玛依</a>
+                                                                              <a href="http://www.pm25.com/city/kuerle.html">库尔勒</a>
+                                                                              <a href="http://www.pm25.com/city/kaifeng.html">开封</a>
+                                                                              <a href="http://www.pm25.com/city/kunshan.html">昆山</a>
+                                                                              <a href="http://www.pm25.com/city/kunming.html">昆明</a>
+                                                                              <a href="http://www.pm25.com/city/kuitun.html">奎屯</a>
+                                                                              <a href="http://www.pm25.com/city/kangding.html">康定</a>
+                                                                              <a href="http://www.pm25.com/city/kashi.html">喀什</a>
+                                                                              <a href="http://www.pm25.com/city/kezilesuzhou.html">克孜勒苏州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">L</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/linan.html">临安</a>
+                                                                              <a href="http://www.pm25.com/city/linfen.html">临汾</a>
+                                                                              <a href="http://www.pm25.com/city/linyi.html">临沂</a>
+                                                                              <a href="http://www.pm25.com/city/lishui.html">丽水</a>
+                                                                              <a href="http://www.pm25.com/city/lanzhou.html">兰州</a>
+                                                                              <a href="http://www.pm25.com/city/langfang.html">廊坊</a>
+                                                                              <a href="http://www.pm25.com/city/lasa.html">拉萨</a>
+                                                                              <a href="http://www.pm25.com/city/liuzhou.html">柳州</a>
+                                                                              <a href="http://www.pm25.com/city/luzhou.html">泸州</a>
+                                                                              <a href="http://www.pm25.com/city/luoyang.html">洛阳</a>
+                                                                              <a href="http://www.pm25.com/city/liyang.html">溧阳</a>
+                                                                              <a href="http://www.pm25.com/city/liaocheng.html">聊城</a>
+                                                                              <a href="http://www.pm25.com/city/laizhou.html">莱州</a>
+                                                                              <a href="http://www.pm25.com/city/laiwu.html">莱芜</a>
+                                                                              <a href="http://www.pm25.com/city/laixi.html">莱西</a>
+                                                                              <a href="http://www.pm25.com/city/lianyungang.html">连云港</a>
+                                                                              <a href="http://www.pm25.com/city/longyan.html">龙岩</a>
+                                                                              <a href="http://www.pm25.com/city/lvliang.html">吕梁</a>
+                                                                              <a href="http://www.pm25.com/city/liaoyang.html">辽阳</a>
+                                                                              <a href="http://www.pm25.com/city/luohe.html">漯河</a>
+                                                                              <a href="http://www.pm25.com/city/lijiang.html">丽江</a>
+                                                                              <a href="http://www.pm25.com/city/lincang.html">临沧</a>
+                                                                              <a href="http://www.pm25.com/city/leshan.html">乐山</a>
+                                                                              <a href="http://www.pm25.com/city/longnan.html">陇南</a>
+                                                                              <a href="http://www.pm25.com/city/linxiazhou.html">临夏州</a>
+                                                                              <a href="http://www.pm25.com/city/liaoyuan.html">辽源</a>
+                                                                              <a href="http://www.pm25.com/city/liuan.html">六安</a>
+                                                                              <a href="http://www.pm25.com/city/liangzhong.html">阆中</a>
+                                                                              <a href="http://www.pm25.com/city/lankaoxian.html">兰考县</a>
+                                                                              <a href="http://www.pm25.com/city/luyixian.html">鹿邑县</a>
+                                                                              <a href="http://www.pm25.com/city/luxi.html">潞西</a>
+                                                                              <a href="http://www.pm25.com/city/liuku.html">六库</a>
+                                                                              <a href="http://www.pm25.com/city/linzhi.html">林芝</a>
+                                                                              <a href="http://www.pm25.com/city/liupanshui.html">六盘水</a>
+                                                                              <a href="http://www.pm25.com/city/liangshanzhou.html">凉山州</a>
+                                                                              <a href="http://www.pm25.com/city/laibin.html">来宾</a>
+                                                                              <a href="http://www.pm25.com/city/loudi.html">娄底</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">M</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/meizhou.html">梅州</a>
+                                                                              <a href="http://www.pm25.com/city/mudanjiang.html">牡丹江</a>
+                                                                              <a href="http://www.pm25.com/city/mianyang.html">绵阳</a>
+                                                                              <a href="http://www.pm25.com/city/maoming.html">茂名</a>
+                                                                              <a href="http://www.pm25.com/city/maanshan.html">马鞍山</a>
+                                                                              <a href="http://www.pm25.com/city/manzhouli.html">满洲里</a>
+                                                                              <a href="http://www.pm25.com/city/maerkang.html">马尔康</a>
+                                                                              <a href="http://www.pm25.com/city/meishan.html">眉山</a>
+                                                                              <a href="http://www.pm25.com/city/mengzi.html">蒙自</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">N</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/nanjing.html">南京</a>
+                                                                              <a href="http://www.pm25.com/city/nanchong.html">南充</a>
+                                                                              <a href="http://www.pm25.com/city/nanning.html">南宁</a>
+                                                                              <a href="http://www.pm25.com/city/nanchang.html">南昌</a>
+                                                                              <a href="http://www.pm25.com/city/nantong.html">南通</a>
+                                                                              <a href="http://www.pm25.com/city/ningbo.html">宁波</a>
+                                                                              <a href="http://www.pm25.com/city/neijiang.html">内江</a>
+                                                                              <a href="http://www.pm25.com/city/nanyang.html">南阳</a>
+                                                                              <a href="http://www.pm25.com/city/naqu.html">那曲</a>
+                                                                              <a href="http://www.pm25.com/city/nanping.html">南平</a>
+                                                                              <a href="http://www.pm25.com/city/ningde.html">宁德</a>
+                                                                              <a href="http://www.pm25.com/city/nujiangzhou.html">怒江州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">P</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/pingdu.html">平度</a>
+                                                                              <a href="http://www.pm25.com/city/pingdingshan.html">平顶山</a>
+                                                                              <a href="http://www.pm25.com/city/panzhihua.html">攀枝花</a>
+                                                                              <a href="http://www.pm25.com/city/panjin.html">盘锦</a>
+                                                                              <a href="http://www.pm25.com/city/penglai.html">蓬莱</a>
+                                                                              <a href="http://www.pm25.com/city/pingxiang.html">萍乡</a>
+                                                                              <a href="http://www.pm25.com/city/puyang.html">濮阳</a>
+                                                                              <a href="http://www.pm25.com/city/putian.html">莆田</a>
+                                                                              <a href="http://www.pm25.com/city/pingliang.html">平凉</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">Q</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/qujing.html">曲靖</a>
+                                                                              <a href="http://www.pm25.com/city/quanzhou.html">泉州</a>
+                                                                              <a href="http://www.pm25.com/city/qingyuan.html">清远</a>
+                                                                              <a href="http://www.pm25.com/city/qinhuangdao.html">秦皇岛</a>
+                                                                              <a href="http://www.pm25.com/city/quzhou.html">衢州</a>
+                                                                              <a href="http://www.pm25.com/city/qingdao.html">青岛</a>
+                                                                              <a href="http://www.pm25.com/city/qiqihaer.html">齐齐哈尔</a>
+                                                                              <a href="http://www.pm25.com/city/qingyang.html">庆阳</a>
+                                                                              <a href="http://www.pm25.com/city/qianjiang.html">潜江</a>
+                                                                              <a href="http://www.pm25.com/city/qitaihe.html">七台河</a>
+                                                                              <a href="http://www.pm25.com/city/qiandongnanzhou.html">黔东南州</a>
+                                                                              <a href="http://www.pm25.com/city/qiannanzhou.html">黔南州</a>
+                                                                              <a href="http://www.pm25.com/city/qianxinanzhou.html">黔西南州</a>
+                                                                              <a href="http://www.pm25.com/city/qinzhou.html">钦州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">R</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/rushan.html">乳山</a>
+                                                                              <a href="http://www.pm25.com/city/rizhao.html">日照</a>
+                                                                              <a href="http://www.pm25.com/city/rongcheng.html">荣成</a>
+                                                                              <a href="http://www.pm25.com/city/ruzhou.html">汝州</a>
+                                                                              <a href="http://www.pm25.com/city/rikaze.html">日喀则</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">S</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/sanya.html">三亚</a>
+                                                                              <a href="http://www.pm25.com/city/sanmenxia.html">三门峡</a>
+                                                                              <a href="http://www.pm25.com/city/shanghai.html">上海</a>
+                                                                              <a href="http://www.pm25.com/city/suqian.html">宿迁</a>
+                                                                              <a href="http://www.pm25.com/city/shouguang.html">寿光</a>
+                                                                              <a href="http://www.pm25.com/city/shantou.html">汕头</a>
+                                                                              <a href="http://www.pm25.com/city/shanwei.html">汕尾</a>
+                                                                              <a href="http://www.pm25.com/city/shenyang.html">沈阳</a>
+                                                                              <a href="http://www.pm25.com/city/shenzhen.html">深圳</a>
+                                                                              <a href="http://www.pm25.com/city/shizuishan.html">石嘴山</a>
+                                                                              <a href="http://www.pm25.com/city/shijiazhuang.html">石家庄</a>
+                                                                              <a href="http://www.pm25.com/city/shaoxing.html">绍兴</a>
+                                                                              <a href="http://www.pm25.com/city/suzhou.html">苏州</a>
+                                                                              <a href="http://www.pm25.com/city/shaoguan.html">韶关</a>
+                                                                              <a href="http://www.pm25.com/city/shuozhou.html">朔州</a>
+                                                                              <a href="http://www.pm25.com/city/suzhoushi.html">宿州</a>
+                                                                              <a href="http://www.pm25.com/city/suining.html">遂宁</a>
+                                                                              <a href="http://www.pm25.com/city/shangrao.html">上饶</a>
+                                                                              <a href="http://www.pm25.com/city/shangqiu.html">商丘</a>
+                                                                              <a href="http://www.pm25.com/city/suizhou.html">随州</a>
+                                                                              <a href="http://www.pm25.com/city/sanming.html">三明</a>
+                                                                              <a href="http://www.pm25.com/city/songyuan.html">松原</a>
+                                                                              <a href="http://www.pm25.com/city/shihezi.html">石河子</a>
+                                                                              <a href="http://www.pm25.com/city/shannan.html">山南</a>
+                                                                              <a href="http://www.pm25.com/city/shiyan.html">十堰</a>
+                                                                              <a href="http://www.pm25.com/city/siping.html">四平</a>
+                                                                              <a href="http://www.pm25.com/city/shuangyashan.html">双鸭山</a>
+                                                                              <a href="http://www.pm25.com/city/suihua.html">绥化</a>
+                                                                              <a href="http://www.pm25.com/city/shangluo.html">商洛</a>
+                                                                              <a href="http://www.pm25.com/city/simao.html">思茅</a>
+                                                                              <a href="http://www.pm25.com/city/shaoyang.html">邵阳</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">T</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/taizhou.html">台州</a>
+                                                                              <a href="http://www.pm25.com/city/tangshan.html">唐山</a>
+                                                                              <a href="http://www.pm25.com/city/tianjin.html">天津</a>
+                                                                              <a href="http://www.pm25.com/city/taicang.html">太仓</a>
+                                                                              <a href="http://www.pm25.com/city/taiyuan.html">太原</a>
+                                                                              <a href="http://www.pm25.com/city/taian.html">泰安</a>
+                                                                              <a href="http://www.pm25.com/city/taizhoushi.html">泰州</a>
+                                                                              <a href="http://www.pm25.com/city/tongchuan.html">铜川</a>
+                                                                              <a href="http://www.pm25.com/city/tongling.html">铜陵</a>
+                                                                              <a href="http://www.pm25.com/city/tieling.html">铁岭</a>
+                                                                              <a href="http://www.pm25.com/city/tongliao.html">通辽</a>
+                                                                              <a href="http://www.pm25.com/city/tianshui.html">天水</a>
+                                                                              <a href="http://www.pm25.com/city/tulufan.html">吐鲁番</a>
+                                                                              <a href="http://www.pm25.com/city/tacheng.html">塔城</a>
+                                                                              <a href="http://www.pm25.com/city/tonghua.html">通化</a>
+                                                                              <a href="http://www.pm25.com/city/tongren.html">铜仁</a>
+                                                                              <a href="http://www.pm25.com/city/tanggu.html">塘沽</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">W</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/wulumuqi.html">乌鲁木齐</a>
+                                                                              <a href="http://www.pm25.com/city/wujiang.html">吴江</a>
+                                                                              <a href="http://www.pm25.com/city/weihai.html">威海</a>
+                                                                              <a href="http://www.pm25.com/city/wendeng.html">文登</a>
+                                                                              <a href="http://www.pm25.com/city/wuxi.html">无锡</a>
+                                                                              <a href="http://www.pm25.com/city/wuhan.html">武汉</a>
+                                                                              <a href="http://www.pm25.com/city/wenzhou.html">温州</a>
+                                                                              <a href="http://www.pm25.com/city/weinan.html">渭南</a>
+                                                                              <a href="http://www.pm25.com/city/weifang.html">潍坊</a>
+                                                                              <a href="http://www.pm25.com/city/wafangdian.html">瓦房店</a>
+                                                                              <a href="http://www.pm25.com/city/wuhu.html">芜湖</a>
+                                                                              <a href="http://www.pm25.com/city/wenshanzhou.html">文山州</a>
+                                                                              <a href="http://www.pm25.com/city/wuhai.html">乌海</a>
+                                                                              <a href="http://www.pm25.com/city/wuwei.html">武威</a>
+                                                                              <a href="http://www.pm25.com/city/wujiaqu.html">五家渠</a>
+                                                                              <a href="http://www.pm25.com/city/wusu.html">乌苏</a>
+                                                                              <a href="http://www.pm25.com/city/wulanchabu.html">乌兰察布</a>
+                                                                              <a href="http://www.pm25.com/city/wulanhaote.html">乌兰浩特</a>
+                                                                              <a href="http://www.pm25.com/city/wuzhong.html">吴忠</a>
+                                                                              <a href="http://www.pm25.com/city/wuzhou.html">梧州</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">X</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/xiamen.html">厦门</a>
+                                                                              <a href="http://www.pm25.com/city/xianyang.html">咸阳</a>
+                                                                              <a href="http://www.pm25.com/city/xuzhou.html">徐州</a>
+                                                                              <a href="http://www.pm25.com/city/xiangtan.html">湘潭</a>
+                                                                              <a href="http://www.pm25.com/city/xining.html">西宁</a>
+                                                                              <a href="http://www.pm25.com/city/xian.html">西安</a>
+                                                                              <a href="http://www.pm25.com/city/xingtai.html">邢台</a>
+                                                                              <a href="http://www.pm25.com/city/xuancheng.html">宣城</a>
+                                                                              <a href="http://www.pm25.com/city/xinzhou.html">忻州</a>
+                                                                              <a href="http://www.pm25.com/city/xinyu.html">新余</a>
+                                                                              <a href="http://www.pm25.com/city/xinxiang.html">新乡</a>
+                                                                              <a href="http://www.pm25.com/city/xuchang.html">许昌</a>
+                                                                              <a href="http://www.pm25.com/city/xinyang.html">信阳</a>
+                                                                              <a href="http://www.pm25.com/city/xilinhaote.html">锡林浩特</a>
+                                                                              <a href="http://www.pm25.com/city/xichang.html">西昌</a>
+                                                                              <a href="http://www.pm25.com/city/xincaixian.html">新蔡县</a>
+                                                                              <a href="http://www.pm25.com/city/xianggelila.html">香格里拉</a>
+                                                                              <a href="http://www.pm25.com/city/xiangyang.html">襄阳</a>
+                                                                              <a href="http://www.pm25.com/city/xiantao.html">仙桃</a>
+                                                                              <a href="http://www.pm25.com/city/xiaogan.html">孝感</a>
+                                                                              <a href="http://www.pm25.com/city/xianning.html">咸宁</a>
+                                                                              <a href="http://www.pm25.com/city/xiangfan.html">襄樊</a>
+                                                                              <a href="http://www.pm25.com/city/xishuangbannazhou.html">西双版纳州</a>
+                                                                              <a href="http://www.pm25.com/city/xiangxizhou.html">湘西州</a>
+                                                                              <a href="http://www.pm25.com/city/xinganmeng.html">兴安盟</a>
+                                                                              <a href="http://www.pm25.com/city/xilinguolemeng.html">锡林郭勒盟</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">Y</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/yiwu.html">义乌</a>
+                                                                              <a href="http://www.pm25.com/city/yunfu.html">云浮</a>
+                                                                              <a href="http://www.pm25.com/city/yixing.html">宜兴</a>
+                                                                              <a href="http://www.pm25.com/city/yibin.html">宜宾</a>
+                                                                              <a href="http://www.pm25.com/city/yichang.html">宜昌</a>
+                                                                              <a href="http://www.pm25.com/city/yueyang.html">岳阳</a>
+                                                                              <a href="http://www.pm25.com/city/yanan.html">延安</a>
+                                                                              <a href="http://www.pm25.com/city/yangzhou.html">扬州</a>
+                                                                              <a href="http://www.pm25.com/city/yantai.html">烟台</a>
+                                                                              <a href="http://www.pm25.com/city/yuxi.html">玉溪</a>
+                                                                              <a href="http://www.pm25.com/city/yancheng.html">盐城</a>
+                                                                              <a href="http://www.pm25.com/city/yingkou.html">营口</a>
+                                                                              <a href="http://www.pm25.com/city/yinchuan.html">银川</a>
+                                                                              <a href="http://www.pm25.com/city/yangjiang.html">阳江</a>
+                                                                              <a href="http://www.pm25.com/city/yangquan.html">阳泉</a>
+                                                                              <a href="http://www.pm25.com/city/yuncheng.html">运城</a>
+                                                                              <a href="http://www.pm25.com/city/yaan.html">雅安</a>
+                                                                              <a href="http://www.pm25.com/city/yichun.html">宜春</a>
+                                                                              <a href="http://www.pm25.com/city/yingtan.html">鹰潭</a>
+                                                                              <a href="http://www.pm25.com/city/yining.html">伊宁</a>
+                                                                              <a href="http://www.pm25.com/city/yanbianzhou.html">延边州</a>
+                                                                              <a href="http://www.pm25.com/city/yilihasakezhou.html">伊犁哈萨克州</a>
+                                                                              <a href="http://www.pm25.com/city/yulin.html">榆林</a>
+                                                                              <a href="http://www.pm25.com/city/yushuzhou.html">玉树州</a>
+                                                                              <a href="http://www.pm25.com/city/yongzhou.html">永州</a>
+                                                                              <a href="http://www.pm25.com/city/yiyang.html">益阳</a>
+                                                                              <a href="http://www.pm25.com/city/yulinshi.html">玉林</a>
+                                                                              <a href="http://www.pm25.com/city/yichunshi.html">伊春</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <div class="city_province_item">
+                               <dl>
+                                    
+                                  <dt class="cpi_capital">Z</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/zhongshan.html">中山</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiakou.html">张家口</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiagang.html">张家港</a>
+                                                                              <a href="http://www.pm25.com/city/zhangjiajie.html">张家界</a>
+                                                                              <a href="http://www.pm25.com/city/zhaoyuan.html">招远</a>
+                                                                              <a href="http://www.pm25.com/city/zaozhuang.html">枣庄</a>
+                                                                              <a href="http://www.pm25.com/city/zhuzhou.html">株洲</a>
+                                                                              <a href="http://www.pm25.com/city/zibo.html">淄博</a>
+                                                                              <a href="http://www.pm25.com/city/zhanjiang.html">湛江</a>
+                                                                              <a href="http://www.pm25.com/city/zhuhai.html">珠海</a>
+                                                                              <a href="http://www.pm25.com/city/zhangqiu.html">章丘</a>
+                                                                              <a href="http://www.pm25.com/city/zhaoqing.html">肇庆</a>
+                                                                              <a href="http://www.pm25.com/city/zigong.html">自贡</a>
+                                                                              <a href="http://www.pm25.com/city/zhoushan.html">舟山</a>
+                                                                              <a href="http://www.pm25.com/city/zhuji.html">诸暨</a>
+                                                                              <a href="http://www.pm25.com/city/zunyi.html">遵义</a>
+                                                                              <a href="http://www.pm25.com/city/zhengzhou.html">郑州</a>
+                                                                              <a href="http://www.pm25.com/city/zhenjiang.html">镇江</a>
+                                                                              <a href="http://www.pm25.com/city/zhaotong.html">昭通</a>
+                                                                              <a href="http://www.pm25.com/city/ziyang.html">资阳</a>
+                                                                              <a href="http://www.pm25.com/city/zhoukou.html">周口</a>
+                                                                              <a href="http://www.pm25.com/city/zhumadian.html">驻马店</a>
+                                                                              <a href="http://www.pm25.com/city/zhangye.html">张掖</a>
+                                                                              <a href="http://www.pm25.com/city/zhangzhou.html">漳州</a>
+                                                                              <a href="http://www.pm25.com/city/zhongwei.html">中卫</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                                                  <!--直辖市和港澳台是特殊的没有字母的形式-->
+                         <div class="city_province_item city_province_special">
+                               <dl>
+                                    
+                                <dt class="">直辖市</dt>
+                                    <dd>
+                                          <a href="http://www.pm25.com/city/beijing.html">北京</a>
+                                          <a href="http://www.pm25.com/city/tianjin.html">天津</a>
+                                          <a href="http://www.pm25.com/city/shanghai.html">上海</a>
+                                          <a href="http://www.pm25.com/city/chongqing.html">重庆</a>
+                                    </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                         <div class="city_province_item city_province_special">
+                               <dl>
+                                    
+                                <dt class="">港澳台</dt>
+                                    <dd>
+                                                                              <a href="http://www.pm25.com/city/xianggang.html">香港</a>
+                                                                              <a href="http://www.pm25.com/city/aomen.html">澳门</a>
+                                                                              <a href="http://www.pm25.com/city/xinbei.html">新北</a>
+                                                                              <a href="http://www.pm25.com/city/taibei.html">台北</a>
+                                                                              <a href="http://www.pm25.com/city/taoyuan.html">桃园</a>
+                                                                              <a href="http://www.pm25.com/city/xinzhu.html">新竹</a>
+                                                                              <a href="http://www.pm25.com/city/miaoli.html">苗栗</a>
+                                                                              <a href="http://www.pm25.com/city/taizhong.html">台中</a>
+                                                                              <a href="http://www.pm25.com/city/zhanghua.html">彰化</a>
+                                                                              <a href="http://www.pm25.com/city/nantou.html">南投</a>
+                                                                              <a href="http://www.pm25.com/city/yunlin.html">云林</a>
+                                                                              <a href="http://www.pm25.com/city/jiayixian.html">嘉义</a>
+                                                                              <a href="http://www.pm25.com/city/jiayi.html">嘉義</a>
+                                                                              <a href="http://www.pm25.com/city/tainan.html">台南</a>
+                                                                              <a href="http://www.pm25.com/city/gaoxiong.html">高雄</a>
+                                                                              <a href="http://www.pm25.com/city/pingdong.html">屏东</a>
+                                                                              <a href="http://www.pm25.com/city/taidong.html">台东</a>
+                                                                              <a href="http://www.pm25.com/city/hualian.html">花莲</a>
+                                                                              <a href="http://www.pm25.com/city/yilan.html">宜兰</a>
+                                                                              <a href="http://www.pm25.com/city/jinmen.html">金门</a>
+                                                                              <a href="http://www.pm25.com/city/penghu.html">澎湖</a>
+                                                                              <a href="http://www.pm25.com/city/jilong.html">基隆</a>
+                                                                        </dd>
+                               </dl>
+                               <div class="clear"></div>
+                         </div>
+                 </div>
+    </div>
+  </div>
+</div>
+
+<script>
+seajs.use(['$', 'tabs', 'cookie', 'tinyscrollbar', 'autocomplete'], function($, Tabs, Cookie){
+
+  $(document).ready(function(){
+    new Tabs({
+        element: '.minicity',
+        triggers: '.city_control_tab a',
+        triggerType: 'click',
+        activeTriggerClass: 'city_control_current',
+        panels: '.city_province',
+        activeIndex: 0
+    });
+
+    $('.tab_pc').click(function(){
+      $('.pc_a_z').show();
+      $('.fc_a_z').hide();
+    });
+
+    $('.tab_fc').click(function(){
+      $('.pc_a_z').hide();
+      $('.fc_a_z').show();
+    });
+
+    $('.minicity_clk').click(function(){
+      $('.minicity').animate({right:0}, 'slow');
+    });
+    $('.mt_close').click(function(){
+      $('.minicity').animate({right:'-900px'}, 'slow');
+    });
+
+    var h = $(window).height()-132;if(h<0)h=0;
+    $(".viewport").css('height',h);
+    $('#scrollbar1').tinyscrollbar();
+
+    window.onresize = function(){
+      var h = $(window).height()-132;if(h<0)h=0;
+      $(".viewport").css('height',h);
+      $(".scrollbar").css('height',h);
+      $(".track").css('height',h);
+      $('#scrollbar1').tinyscrollbar();
+    }
+
+    $('.city_citys').addClass('hide');
+
+    var cities = [{"value":"\u4e09\u4e9a","data":"sanya","fl":"SY"},{"value":"\u4e09\u95e8\u5ce1","data":"sanmenxia","fl":"SMX"},{"value":"\u4e0a\u6d77","data":"shanghai","fl":"SH"},{"value":"\u4e1c\u839e","data":"dongguan","fl":"dg"},{"value":"\u4e1c\u8425","data":"dongying","fl":"DY"},{"value":"\u4e2d\u5c71","data":"zhongshan","fl":"ZS"},{"value":"\u4e34\u5b89","data":"linan","fl":"LA"},{"value":"\u4e34\u6c7e","data":"linfen","fl":"LF"},{"value":"\u4e34\u6c82","data":"linyi","fl":"LY"},{"value":"\u4e39\u4e1c","data":"dandong","fl":"DD"},{"value":"\u4e3d\u6c34","data":"lishui","fl":"LS"},{"value":"\u4e49\u4e4c","data":"yiwu","fl":"YW"},{"value":"\u4e4c\u9c81\u6728\u9f50","data":"wulumuqi","fl":"WLMQ"},{"value":"\u4e5d\u6c5f","data":"jiujiang","fl":"JJ"},{"value":"\u4e73\u5c71","data":"rushan","fl":"RS"},{"value":"\u4e91\u6d6e","data":"yunfu","fl":"YF"},{"value":"\u4f5b\u5c71","data":"foshan","fl":"FS"},{"value":"\u4fdd\u5b9a","data":"baoding","fl":"BD"},{"value":"\u514b\u62c9\u739b\u4f9d","data":"kelamayi","fl":"KLMY"},{"value":"\u5170\u5dde","data":"lanzhou","fl":"LZ"},{"value":"\u5305\u5934","data":"baotou","fl":"BT"},{"value":"\u5317\u4eac","data":"beijing","fl":"BJ"},{"value":"\u5317\u6d77","data":"beihai","fl":"BH"},{"value":"\u5357\u4eac","data":"nanjing","fl":"NJ"},{"value":"\u5357\u5145","data":"nanchong","fl":"NC"},{"value":"\u5357\u5b81","data":"nanning","fl":"NN"},{"value":"\u5357\u660c","data":"nanchang","fl":"NC"},{"value":"\u5357\u901a","data":"nantong","fl":"NT"},{"value":"\u5373\u58a8","data":"jimo","fl":"JM"},{"value":"\u53a6\u95e8","data":"xiamen","fl":"XM"},{"value":"\u53e5\u5bb9","data":"jurong","fl":"JR"},{"value":"\u53f0\u5dde","data":"taizhou","fl":"TZ"},{"value":"\u5408\u80a5","data":"hefei","fl":"HF"},{"value":"\u5409\u6797","data":"jilin","fl":"JL"},{"value":"\u5434\u6c5f","data":"wujiang","fl":"WJ"},{"value":"\u547c\u548c\u6d69\u7279","data":"huhehaote","fl":"HHHT"},{"value":"\u54b8\u9633","data":"xianyang","fl":"XY"},{"value":"\u54c8\u5c14\u6ee8","data":"haerbin","fl":"HEB"},{"value":"\u5510\u5c71","data":"tangshan","fl":"TS"},{"value":"\u5609\u5174","data":"jiaxing","fl":"JX"},{"value":"\u5609\u5cea\u5173","data":"jiayuguan","fl":"JYG"},{"value":"\u5927\u540c","data":"datong","fl":"DT"},{"value":"\u5927\u5e86","data":"daqing","fl":"DQ"},{"value":"\u5927\u8fde","data":"dalian","fl":"DL"},{"value":"\u5929\u6d25","data":"tianjin","fl":"TJ"},{"value":"\u592a\u4ed3","data":"taicang","fl":"TC"},{"value":"\u592a\u539f","data":"taiyuan","fl":"TY"},{"value":"\u5a01\u6d77","data":"weihai","fl":"WH"},{"value":"\u5b81\u6ce2","data":"ningbo","fl":"NB"},{"value":"\u5b89\u9633","data":"anyang","fl":"AY"},{"value":"\u5b9c\u5174","data":"yixing","fl":"YX"},{"value":"\u5b9c\u5bbe","data":"yibin","fl":"YB"},{"value":"\u5b9c\u660c","data":"yichang","fl":"YC"},{"value":"\u5b9d\u9e21","data":"baoji","fl":"BJ"},{"value":"\u5bbf\u8fc1","data":"suqian","fl":"SQ"},{"value":"\u5bcc\u9633","data":"fuyang","fl":"FY"},{"value":"\u5bff\u5149","data":"shouguang","fl":"SG"},{"value":"\u5cb3\u9633","data":"yueyang","fl":"YY"},{"value":"\u5e38\u5dde","data":"changzhou","fl":"CZ"},{"value":"\u5e38\u5fb7","data":"changde","fl":"CD"},{"value":"\u5e38\u719f","data":"changshu","fl":"CS"},{"value":"\u5e73\u5ea6","data":"pingdu","fl":"PD"},{"value":"\u5e73\u9876\u5c71","data":"pingdingshan","fl":"PDS"},{"value":"\u5e7f\u5dde","data":"guangzhou","fl":"GZ"},{"value":"\u5e93\u5c14\u52d2","data":"kuerle","fl":"KEL"},{"value":"\u5eca\u574a","data":"langfang","fl":"LF"},{"value":"\u5ef6\u5b89","data":"yanan","fl":"YA"},{"value":"\u5f00\u5c01","data":"kaifeng","fl":"KF"},{"value":"\u5f20\u5bb6\u53e3","data":"zhangjiakou","fl":"ZJK"},{"value":"\u5f20\u5bb6\u6e2f","data":"zhangjiagang","fl":"ZJG"},{"value":"\u5f20\u5bb6\u754c","data":"zhangjiajie","fl":"ZJJ"},{"value":"\u5f90\u5dde","data":"xuzhou","fl":"XZ"},{"value":"\u5fb7\u5dde","data":"dezhou","fl":"DZ"},{"value":"\u5fb7\u9633","data":"deyang","fl":"DY"},{"value":"\u60e0\u5dde","data":"huizhou","fl":"HZ"},{"value":"\u6210\u90fd","data":"chengdu","fl":"CD"},{"value":"\u626c\u5dde","data":"yangzhou","fl":"YZ"},{"value":"\u627f\u5fb7","data":"chengde","fl":"CD"},{"value":"\u629a\u987a","data":"fushun","fl":"FS"},{"value":"\u62c9\u8428","data":"lasa","fl":"LS"},{"value":"\u62db\u8fdc","data":"zhaoyuan","fl":"ZY"},{"value":"\u63ed\u9633","data":"jieyang","fl":"JY"},{"value":"\u6500\u679d\u82b1","data":"panzhihua","fl":"PZH"},{"value":"\u6587\u767b","data":"wendeng","fl":"WD"},{"value":"\u65e0\u9521","data":"wuxi","fl":"WX"},{"value":"\u65e5\u7167","data":"rizhao","fl":"RZ"},{"value":"\u6606\u5c71","data":"kunshan","fl":"KS"},{"value":"\u6606\u660e","data":"kunming","fl":"KM"},{"value":"\u66f2\u9756","data":"qujing","fl":"QJ"},{"value":"\u672c\u6eaa","data":"benxi","fl":"BX"},{"value":"\u676d\u5dde","data":"hangzhou","fl":"HZ"},{"value":"\u67a3\u5e84","data":"zaozhuang","fl":"ZZ"},{"value":"\u67f3\u5dde","data":"liuzhou","fl":"LZ"},{"value":"\u682a\u6d32","data":"zhuzhou","fl":"ZZ"},{"value":"\u6842\u6797","data":"guilin","fl":"GL"},{"value":"\u6885\u5dde","data":"meizhou","fl":"MZ"},{"value":"\u6b66\u6c49","data":"wuhan","fl":"WH"},{"value":"\u6c55\u5934","data":"shantou","fl":"ST"},{"value":"\u6c55\u5c3e","data":"shanwei","fl":"SW"},{"value":"\u6c5f\u95e8","data":"jiangmen","fl":"JM"},{"value":"\u6c5f\u9634","data":"jiangyin","fl":"JY"},{"value":"\u6c88\u9633","data":"shenyang","fl":"SY"},{"value":"\u6ca7\u5dde","data":"cangzhou","fl":"CZ"},{"value":"\u6cb3\u6e90","data":"heyuan","fl":"HY"},{"value":"\u6cc9\u5dde","data":"quanzhou","fl":"QZ"},{"value":"\u6cf0\u5b89","data":"taian","fl":"TA"},{"value":"\u6cf0\u5dde","data":"taizhoushi","fl":"tz"},{"value":"\u6cf8\u5dde","data":"luzhou","fl":"LZ"},{"value":"\u6d1b\u9633","data":"luoyang","fl":"LY"},{"value":"\u6d4e\u5357","data":"jinan","fl":"JN"},{"value":"\u6d4e\u5b81","data":"jining","fl":"JN"},{"value":"\u6d77\u53e3","data":"haikou","fl":"HK"},{"value":"\u6d77\u95e8","data":"haimen","fl":"HM"},{"value":"\u6dc4\u535a","data":"zibo","fl":"ZB"},{"value":"\u6dee\u5b89","data":"huaian","fl":"HA"},{"value":"\u6df1\u5733","data":"shenzhen","fl":"SZ"},{"value":"\u6e05\u8fdc","data":"qingyuan","fl":"QY"},{"value":"\u6e29\u5dde","data":"wenzhou","fl":"WZ"},{"value":"\u6e2d\u5357","data":"weinan","fl":"WN"},{"value":"\u6e56\u5dde","data":"huzhou","fl":"HZ"},{"value":"\u6e58\u6f6d","data":"xiangtan","fl":"XT"},{"value":"\u6e5b\u6c5f","data":"zhanjiang","fl":"ZJ"},{"value":"\u6ea7\u9633","data":"liyang","fl":"LY"},{"value":"\u6ee8\u5dde","data":"binzhou","fl":"BZ"},{"value":"\u6f4d\u574a","data":"weifang","fl":"WF"},{"value":"\u6f6e\u5dde","data":"chaozhou","fl":"CZ"},{"value":"\u70df\u53f0","data":"yantai","fl":"YT"},{"value":"\u7126\u4f5c","data":"jiaozuo","fl":"JZ"},{"value":"\u7261\u4e39\u6c5f","data":"mudanjiang","fl":"MDJ"},{"value":"\u7389\u6eaa","data":"yuxi","fl":"YX"},{"value":"\u73e0\u6d77","data":"zhuhai","fl":"ZH"},{"value":"\u74e6\u623f\u5e97","data":"wafangdian","fl":"WFD"},{"value":"\u76d0\u57ce","data":"yancheng","fl":"YC"},{"value":"\u76d8\u9526","data":"panjin","fl":"PJ"},{"value":"\u77f3\u5634\u5c71","data":"shizuishan","fl":"SZS"},{"value":"\u77f3\u5bb6\u5e84","data":"shijiazhuang","fl":"SJZ"},{"value":"\u798f\u5dde","data":"fuzhou","fl":"FZ"},{"value":"\u79e6\u7687\u5c9b","data":"qinhuangdao","fl":"QHD"},{"value":"\u7ae0\u4e18","data":"zhangqiu","fl":"ZQ"},{"value":"\u7ecd\u5174","data":"shaoxing","fl":"SX"},{"value":"\u7ef5\u9633","data":"mianyang","fl":"MY"},{"value":"\u804a\u57ce","data":"liaocheng","fl":"LC"},{"value":"\u8087\u5e86","data":"zhaoqing","fl":"ZQ"},{"value":"\u80f6\u5357","data":"jiaonan","fl":"JN"},{"value":"\u80f6\u5dde","data":"jiaozhou","fl":"JZ"},{"value":"\u81ea\u8d21","data":"zigong","fl":"ZG"},{"value":"\u821f\u5c71","data":"zhoushan","fl":"ZS"},{"value":"\u829c\u6e56","data":"wuhu","fl":"WH"},{"value":"\u82cf\u5dde","data":"suzhou","fl":"SZ"},{"value":"\u8302\u540d","data":"maoming","fl":"MM"},{"value":"\u8346\u5dde","data":"jingzhou","fl":"JZ"},{"value":"\u8363\u6210","data":"rongcheng","fl":"RC"},{"value":"\u83b1\u5dde","data":"laizhou","fl":"LZ"},{"value":"\u83b1\u829c","data":"laiwu","fl":"LW"},{"value":"\u83b1\u897f","data":"laixi","fl":"LX"},{"value":"\u83cf\u6cfd","data":"heze","fl":"HZ"},{"value":"\u8425\u53e3","data":"yingkou","fl":"YK"},{"value":"\u846b\u82a6\u5c9b","data":"huludao","fl":"HLD"},{"value":"\u84ec\u83b1","data":"penglai","fl":"PL"},{"value":"\u8861\u6c34","data":"hengshui","fl":"HS"},{"value":"\u8862\u5dde","data":"quzhou","fl":"QZ"},{"value":"\u897f\u5b81","data":"xining","fl":"XN"},{"value":"\u897f\u5b89","data":"xian","fl":"XA"},{"value":"\u8bf8\u66a8","data":"zhuji","fl":"ZJ"},{"value":"\u8d35\u9633","data":"guiyang","fl":"GY"},{"value":"\u8d64\u5cf0","data":"chifeng","fl":"CF"},{"value":"\u8fde\u4e91\u6e2f","data":"lianyungang","fl":"LYG"},{"value":"\u9075\u4e49","data":"zunyi","fl":"ZY"},{"value":"\u90a2\u53f0","data":"xingtai","fl":"XT"},{"value":"\u90af\u90f8","data":"handan","fl":"HD"},{"value":"\u90d1\u5dde","data":"zhengzhou","fl":"ZZ"},{"value":"\u9102\u5c14\u591a\u65af","data":"eerduosi","fl":"EEDS"},{"value":"\u91cd\u5e86","data":"chongqing","fl":"CQ"},{"value":"\u91d1\u534e","data":"jinhua","fl":"JH"},{"value":"\u91d1\u575b","data":"jintan","fl":"JT"},{"value":"\u91d1\u660c","data":"jinchang","fl":"JC"},{"value":"\u94dc\u5ddd","data":"tongchuan","fl":"TC"},{"value":"\u94f6\u5ddd","data":"yinchuan","fl":"YC"},{"value":"\u9526\u5dde","data":"jinzhou","fl":"JZ"},{"value":"\u9547\u6c5f","data":"zhenjiang","fl":"ZJ"},{"value":"\u957f\u6625","data":"changchun","fl":"CC"},{"value":"\u957f\u6c99","data":"changsha","fl":"CS"},{"value":"\u957f\u6cbb","data":"changzhi","fl":"CZ"},{"value":"\u9633\u6c5f","data":"yangjiang","fl":"YJ"},{"value":"\u9633\u6cc9","data":"yangquan","fl":"YQ"},{"value":"\u9752\u5c9b","data":"qingdao","fl":"QD"},{"value":"\u978d\u5c71","data":"anshan","fl":"AS"},{"value":"\u97f6\u5173","data":"shaoguan","fl":"SG"},{"value":"\u9a6c\u978d\u5c71","data":"maanshan","fl":"MAS"},{"value":"\u9f50\u9f50\u54c8\u5c14","data":"qiqihaer","fl":"QQHE"},{"value":"\u5b89\u5e86","data":"anqing","fl":"aq"},{"value":"\u6d77\u5357\u5dde","data":"hainanzhou","fl":"hnz"},{"value":"\u4eb3\u5dde","data":"bozhou","fl":"bz"},{"value":"\u868c\u57e0","data":"bengbu","fl":"bb"},{"value":"\u5df4\u4e2d","data":"bazhong","fl":"bz"},{"value":"\u4fdd\u5c71","data":"baoshan","fl":"BS"},{"value":"\u5df4\u5f66\u6dd6\u5c14","data":"bayannaoer","fl":"byne"},{"value":"\u671d\u9633","data":"chaoyang","fl":"cy"},{"value":"\u6ec1\u5dde","data":"chuzhou","fl":"cz"},{"value":"\u6c60\u5dde","data":"chizhou","fl":"cz"},{"value":"\u695a\u96c4\u5dde","data":"chuxiongzhou","fl":"cxz"},{"value":"\u660c\u90fd","data":"changdu","fl":"cd"},{"value":"\u8fbe\u5dde","data":"dazhou","fl":"dz"},{"value":"\u5927\u7406\u5dde","data":"dalizhou","fl":"dlz"},{"value":"\u961c\u65b0","data":"fuxin","fl":"fx"},{"value":"\u9f99\u5ca9","data":"longyan","fl":"ly"},{"value":"\u629a\u5dde","data":"fuzhoushi","fl":"FS"},{"value":"\u5e7f\u5b89","data":"guangan","fl":"ga"},{"value":"\u5e7f\u5143","data":"guangyuan","fl":"gy"},{"value":"\u8d63\u5dde","data":"ganzhou","fl":"GZ"},{"value":"\u6dee\u5317","data":"huaibei","fl":"hb"},{"value":"\u6dee\u5357","data":"huainan","fl":"hn"},{"value":"\u9ec4\u5c71","data":"huangshan","fl":"hs"},{"value":"\u9e64\u58c1","data":"hebi","fl":"hb"},{"value":"\u9ec4\u5188","data":"huanggang","fl":"hg"},{"value":"\u547c\u4f26\u8d1d\u5c14","data":"hulunbeier","fl":"HLBE"},{"value":"\u664b\u57ce","data":"jincheng","fl":"JC"},{"value":"\u664b\u4e2d","data":"jinzhong","fl":"JZ"},{"value":"\u5409\u5b89","data":"jian","fl":"JA"},{"value":"\u666f\u5fb7\u9547","data":"jingdezhen","fl":"JDZ"},{"value":"\u5415\u6881","data":"lvliang","fl":"LL"},{"value":"\u8fbd\u9633","data":"liaoyang","fl":"ly"},{"value":"\u5185\u6c5f","data":"neijiang","fl":"nj"},{"value":"\u94dc\u9675","data":"tongling","fl":"tl"},{"value":"\u6f2f\u6cb3","data":"luohe","fl":"LH"},{"value":"\u4e3d\u6c5f","data":"lijiang","fl":"LJ"},{"value":"\u4e34\u6ca7","data":"lincang","fl":"LC"},{"value":"\u961c\u9633","data":"fuyangshi","fl":"fys"},{"value":"\u5357\u9633","data":"nanyang","fl":"ny"},{"value":"\u90a3\u66f2","data":"naqu","fl":"nq"},{"value":"\u5357\u5e73","data":"nanping","fl":"np"},{"value":"\u840d\u4e61","data":"pingxiang","fl":"PX"},{"value":"\u6fee\u9633","data":"puyang","fl":"py"},{"value":"\u8386\u7530","data":"putian","fl":"PT"},{"value":"\u6714\u5dde","data":"shuozhou","fl":"sz"},{"value":"\u5bbf\u5dde","data":"suzhoushi","fl":"szs"},{"value":"\u9042\u5b81","data":"suining","fl":"sn"},{"value":"\u4e0a\u9976","data":"shangrao","fl":"SR"},{"value":"\u5546\u4e18","data":"shangqiu","fl":"sq"},{"value":"\u968f\u5dde","data":"suizhou","fl":"sz"},{"value":"\u662d\u901a","data":"zhaotong","fl":"ZT"},{"value":"\u4e09\u660e","data":"sanming","fl":"SM"},{"value":"\u94c1\u5cad","data":"tieling","fl":"tl"},{"value":"\u4e50\u5c71","data":"leshan","fl":"ls"},{"value":"\u901a\u8fbd","data":"tongliao","fl":"TL"},{"value":"\u6587\u5c71\u5dde","data":"wenshanzhou","fl":"wsz"},{"value":"\u4e4c\u6d77","data":"wuhai","fl":"wh"},{"value":"\u5ba3\u57ce","data":"xuancheng","fl":"xc"},{"value":"\u5ffb\u5dde","data":"xinzhou","fl":"XZ"},{"value":"\u65b0\u4f59","data":"xinyu","fl":"XY"},{"value":"\u65b0\u4e61","data":"xinxiang","fl":"xx"},{"value":"\u8bb8\u660c","data":"xuchang","fl":"xc"},{"value":"\u4fe1\u9633","data":"xinyang","fl":"xy"},{"value":"\u8fd0\u57ce","data":"yuncheng","fl":"yc"},{"value":"\u96c5\u5b89","data":"yaan","fl":"ya"},{"value":"\u5b9c\u6625","data":"yichun","fl":"YC"},{"value":"\u9e70\u6f6d","data":"yingtan","fl":"YT"},{"value":"\u8d44\u9633","data":"ziyang","fl":"zy"},{"value":"\u5468\u53e3","data":"zhoukou","fl":"zk"},{"value":"\u9a7b\u9a6c\u5e97","data":"zhumadian","fl":"zmd"},{"value":"\u9999\u6e2f","data":"xianggang","fl":"XG"},{"value":"\u65b0\u5317","data":"xinbei","fl":"XB"},{"value":"\u53f0\u5317","data":"taibei","fl":"TB"},{"value":"\u6843\u56ed","data":"taoyuan","fl":"TY"},{"value":"\u65b0\u7af9","data":"xinzhu","fl":"XZ"},{"value":"\u82d7\u6817","data":"miaoli","fl":"ML"},{"value":"\u53f0\u4e2d","data":"taizhong","fl":"TZ"},{"value":"\u5f70\u5316","data":"zhanghua","fl":"ZH"},{"value":"\u5357\u6295","data":"nantou","fl":"NT"},{"value":"\u4e91\u6797","data":"yunlin","fl":"YL"},{"value":"\u5609\u4e49","data":"jiayixian","fl":"JYX"},{"value":"\u5609\u7fa9","data":"jiayi","fl":"JY"},{"value":"\u53f0\u5357","data":"tainan","fl":"TN"},{"value":"\u9ad8\u96c4","data":"gaoxiong","fl":"GX"},{"value":"\u5c4f\u4e1c","data":"pingdong","fl":"PD"},{"value":"\u53f0\u4e1c","data":"taidong","fl":"TD"},{"value":"\u82b1\u83b2","data":"hualian","fl":"HL"},{"value":"\u5b9c\u5170","data":"yilan","fl":"YL"},{"value":"\u91d1\u95e8","data":"jinmen","fl":"JM"},{"value":"\u6f8e\u6e56","data":"penghu","fl":"PH"},{"value":"\u57fa\u9686","data":"jilong","fl":"JL"},{"value":"\u767d\u94f6","data":"baiyin","fl":"BY"},{"value":"\u5929\u6c34","data":"tianshui","fl":"TS"},{"value":"\u5e86\u9633","data":"qingyang","fl":"QY"},{"value":"\u5e73\u51c9","data":"pingliang","fl":"pl"},{"value":"\u9647\u5357","data":"longnan","fl":"ln"},{"value":"\u5b9a\u897f","data":"dingxi","fl":"dx"},{"value":"\u6b66\u5a01","data":"wuwei","fl":"ww"},{"value":"\u5f20\u6396","data":"zhangye","fl":"zy"},{"value":"\u9152\u6cc9","data":"jiuquan","fl":"jq"},{"value":"\u4e34\u590f\u5dde","data":"linxiazhou","fl":"lxz"},{"value":"\u7518\u5357\u5dde","data":"gannanzhou","fl":"GN"},{"value":"\u548c\u7530","data":"hetian","fl":"ht"},{"value":"\u9ec4\u5357\u5dde","data":"huangnanzhou","fl":"hnz"},{"value":"\u9e21\u897f","data":"jixi","fl":"jx"},{"value":"\u5410\u9c81\u756a","data":"tulufan","fl":"tlf"},{"value":"\u677e\u539f","data":"songyuan","fl":"sy"},{"value":"\u77f3\u6cb3\u5b50","data":"shihezi","fl":"shz"},{"value":"\u6d77\u5317\u5dde","data":"haibeizhou","fl":"hbz"},{"value":"\u54c8\u5bc6","data":"hami","fl":"hm"},{"value":"\u4e94\u5bb6\u6e20","data":"wujiaqu","fl":"wjq"},{"value":"\u535a\u5dde","data":"bozhoushi","fl":"bzs"},{"value":"\u8fbd\u6e90","data":"liaoyuan","fl":"ly"},{"value":"\u4e4c\u5170\u5bdf\u5e03","data":"wulanchabu","fl":"ulcb"},{"value":"\u516d\u5b89","data":"liuan","fl":"la"},{"value":"\u7709\u5c71","data":"meishan","fl":"ms"},{"value":"\u6f33\u5dde","data":"zhangzhou","fl":"ZZ"},{"value":"\u5b81\u5fb7","data":"ningde","fl":"ND"},{"value":"\u5c71\u5357","data":"shannan","fl":"sn"},{"value":"\u8346\u95e8","data":"jingmen","fl":"jm"},{"value":"\u9ec4\u77f3","data":"huangshi","fl":"hs"},{"value":"\u5341\u5830","data":"shiyan","fl":"sy"},{"value":"\u9102\u5dde","data":"ezhou","fl":"ez"},{"value":"\u5b5d\u611f","data":"xiaogan","fl":"xg"},{"value":"\u54b8\u5b81","data":"xianning","fl":"xn"},{"value":"\u6797\u829d","data":"linzhi","fl":"lz"},{"value":"\u4e2d\u536b","data":"zhongwei","fl":"zw"},{"value":"\u963f\u52d2\u6cf0","data":"aletai","fl":"alt"},{"value":"\u56db\u5e73","data":"siping","fl":"sp"},{"value":"\u963f\u62c9\u5584\u76df","data":"alashanmeng","fl":"alsm"},{"value":"\u767d\u5c71","data":"baishan","fl":"bs"},{"value":"\u5854\u57ce","data":"tacheng","fl":"tc"},{"value":"\u767d\u57ce","data":"baicheng","fl":"bc"},{"value":"\u5ef6\u8fb9\u5dde","data":"yanbianzhou","fl":"ybz"},{"value":"\u4f0a\u7281\u54c8\u8428\u514b\u5dde","data":"yilihasakezhou","fl":"ylhskz"},{"value":"\u5580\u4ec0","data":"kashi","fl":"ks"},{"value":"\u9e64\u5c97","data":"hegang","fl":"hg"},{"value":"\u53cc\u9e2d\u5c71","data":"shuangyashan","fl":"sys"},{"value":"\u514b\u5b5c\u52d2\u82cf\u5dde","data":"kezilesuzhou","fl":"kzlsz"},{"value":"\u963f\u514b\u82cf","data":"akesu","fl":"aks"},{"value":"\u4f73\u6728\u65af","data":"jiamusi","fl":"jms"},{"value":"\u6d77\u4e1c","data":"haidong","fl":"hd"},{"value":"\u4e03\u53f0\u6cb3","data":"qitaihe","fl":"qth"},{"value":"\u9ed1\u6cb3","data":"heihe","fl":"hh"},{"value":"\u7ee5\u5316","data":"suihua","fl":"sh"},{"value":"\u5927\u5174\u5b89\u5cad","data":"daxinganling","fl":"dxal"},{"value":"\u8944\u6a0a","data":"xiangfan","fl":"xf"},{"value":"\u6c49\u4e2d","data":"hanzhong","fl":"hz"},{"value":"\u6986\u6797","data":"yulin","fl":"yl"},{"value":"\u5b89\u5eb7","data":"ankang","fl":"ak"},{"value":"\u5546\u6d1b","data":"shangluo","fl":"sl"},{"value":"\u963f\u91cc","data":"ali","fl":"al"},{"value":"\u65e5\u5580\u5219","data":"rikaze","fl":"rkz"},{"value":"\u679c\u6d1b\u5dde","data":"guoluozhou","fl":"glz"},{"value":"\u7389\u6811\u5dde","data":"yushuzhou","fl":"ysz"},{"value":"\u6d77\u897f\u5dde","data":"haixizhou","fl":"hxz"},{"value":"\u5434\u5fe0","data":"wuzhong","fl":"wz"},{"value":"\u901a\u5316","data":"tonghua","fl":"th"},{"value":"\u56fa\u539f","data":"guyuan","fl":"gy"},{"value":"\u660c\u5409\u5dde","data":"changjizhou","fl":"cjz"},{"value":"\u9ed4\u4e1c\u5357\u5dde","data":"qiandongnanzhou","fl":"qdnz"},{"value":"\u8fea\u5e86\u5dde","data":"diqingzhou","fl":"dqz"},{"value":"\u6012\u6c5f\u5dde","data":"nujiangzhou","fl":"njz"},{"value":"\u5fb7\u5b8f\u5dde","data":"dehongzhou","fl":"dhz"},{"value":"\u897f\u53cc\u7248\u7eb3\u5dde","data":"xishuangbannazhou","fl":"xsbnz"},{"value":"\u7ea2\u6cb3\u5dde","data":"honghezhou","fl":"hhz"},{"value":"\u601d\u8305","data":"simao","fl":"sm"},{"value":"\u9ed4\u5357\u5dde","data":"qiannanzhou","fl":"qnz"},{"value":"\u9ed4\u897f\u5357\u5dde","data":"qianxinanzhou","fl":"qxnz"},{"value":"\u6bd5\u8282","data":"bijie","fl":"bj"},{"value":"\u94dc\u4ec1","data":"tongren","fl":"tr"},{"value":"\u5b89\u987a","data":"anshun","fl":"as"},{"value":"\u6069\u65bd\u5dde","data":"enshizhou","fl":"esz"},{"value":"\u516d\u76d8\u6c34","data":"liupanshui","fl":"lps"},{"value":"\u51c9\u5c71\u5dde","data":"liangshanzhou","fl":"lsz"},{"value":"\u7518\u5b5c\u5dde","data":"ganzizhou","fl":"gzz"},{"value":"\u963f\u575d\u5dde","data":"abazhou","fl":"abz"},{"value":"\u5d07\u5de6","data":"chongzuo","fl":"cz"},{"value":"\u6765\u5bbe","data":"laibin","fl":"lb"},{"value":"\u6cb3\u6c60","data":"hechi","fl":"hc"},{"value":"\u8d3a\u5dde","data":"hezhou","fl":"hz"},{"value":"\u767e\u8272","data":"baise","fl":"bs"},{"value":"\u94a6\u5dde","data":"qinzhou","fl":"qz"},{"value":"\u8d35\u6e2f","data":"guigang","fl":"gg"},{"value":"\u9632\u57ce\u6e2f","data":"fangchenggang","fl":"fcg"},{"value":"\u68a7\u5dde","data":"wuzhou","fl":"wz"},{"value":"\u6e58\u897f\u5dde","data":"xiangxizhou","fl":"xxz"},{"value":"\u5a04\u5e95","data":"loudi","fl":"ld"},{"value":"\u6000\u5316","data":"huaihua","fl":"hh"},{"value":"\u6c38\u5dde","data":"yongzhou","fl":"yz"},{"value":"\u90f4\u5dde","data":"chenzhou","fl":"cz"},{"value":"\u76ca\u9633","data":"yiyang","fl":"yy"},{"value":"\u90b5\u9633","data":"shaoyang","fl":"sy"},{"value":"\u8861\u9633","data":"hengyang","fl":"hy"},{"value":"\u5174\u5b89\u76df","data":"xinganmeng","fl":"xam"},{"value":"\u9521\u6797\u90ed\u52d2\u76df","data":"xilinguolemeng","fl":"xlglm"},{"value":"\u7389\u6797","data":"yulinshi","fl":"yls"},{"value":"\u4f0a\u6625","data":"yichunshi","fl":"yc"}];
+
+    $('#autocomplete').autocomplete({
+        lookup: cities,
+        lookupLimit: 15,
+        width: '200px',
+        lookupFilter: function(suggestion, originalQuery, queryLowerCase){
+          var pattern = '^'+queryLowerCase;
+          return suggestion.data.match(pattern) || suggestion.fl.toLowerCase().match(pattern);
+        },
+        formatResult: function (suggestion, currentValue) {
+          return '<a href="/city/'+suggestion.data+'.html">'+suggestion.value+'</a>';
+        },
+        onSelect: function (suggestion) {
+        }
+    });
+
+    var checkCity = function(){
+      $.ajax({
+        type: "post",
+        dataType: 'json',
+        url: 'http://www.pm25.com/city/cityCheck',
+        data: {cityname: $('#autocomplete').val()},
+        success:function(res){
+          if(res.err == 0) {
+            window.location.href = '/city/'+res.areapy+'.html';
+          } else {
+            alert('对不起，该城市不存在!')
+          }
+        }
+      });
+    }
+
+    $('.search_btn').click(function(){
+      checkCity();
+    });
+
+    $('.search_city_text').keypress(function(e){
+      if(e.which == 13) {
+        checkCity();
+      }  
+    }); 
+
+    $('.city_default_shezhi').click(function(){
+      var currentCity = $('.city_default_shezhi').attr('city');
+      Cookie.set('default_city', currentCity, {
+        path: '/',
+        expires: 18000
+      });
+      $('.city_default_two').show();
+      $('.default_city').text(currentCity);
+      $('.city_default_shezhi').hide();
+    });
+
+    $('.city_default_shanchu').click(function(){
+      Cookie.remove('default_city', {
+        path: '/'
+      });
+      $('.city_default_two').hide();
+      $('.city_default_shezhi').show();
+    });
+
+  });
+
+});
+</script>
+<script>
+seajs.use(['common', 'tabs', 'echarts'], function(common, Tabs){
+
+$(document).ready(function(){
+    common.listHover();
+        new Tabs({
+        element: '.pj_area',
+        triggers: '.pj_area_tab a',
+        triggerType: 'click',
+        activeTriggerClass: 'current',
+        panels: '.pj_area_data_details',
+        activeIndex: 0
+    });
+
+    new Tabs({
+        element: '.panel_graph',
+        triggers: '.pg_area_tab a',
+        triggerType: 'click',
+        activeTriggerClass: 'current',
+        panels: '.pg_content',
+        activeIndex: 0
+    });
+
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('pg_content_24h'), 'shine'); 
+    
+    var option = {
+        color: ['#79b05f', '#e58c65'],
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['美国标准','中国标准']
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ["11\u65e509\u65f6","11\u65e510\u65f6","11\u65e511\u65f6","11\u65e512\u65f6","11\u65e513\u65f6","11\u65e514\u65f6","11\u65e515\u65f6","11\u65e516\u65f6","11\u65e517\u65f6","11\u65e518\u65f6","11\u65e519\u65f6","11\u65e520\u65f6","11\u65e521\u65f6","11\u65e522\u65f6","11\u65e523\u65f6","12\u65e501\u65f6","12\u65e502\u65f6","12\u65e503\u65f6","12\u65e504\u65f6","12\u65e505\u65f6","12\u65e506\u65f6","12\u65e507\u65f6","12\u65e508\u65f6","12\u65e509\u65f6"],
+                axisLine: {
+                    lineStyle : {
+                      color: '#d4d4d4'
+                    }
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} '
+                },
+                axisLine: {
+                    lineStyle : {
+                      color: '#d4d4d4'
+                    }
+                }
+            }
+        ],
+        series : [
+            {
+                name:'美国标准',
+                type:'line',
+                data:[68,56,60,55,49,47,71,51,46,53,47,43,51,61,75,67,73,73,77,85,81,87,100,91]            },
+            {
+                name:'中国标准',
+                type:'line',
+                data:[67,54,56,38,38,41,57,46,41,46,42,40,48,53,63,57,57,61,67,67,71,79,78,74]            }
+        ]
+    };   
+    // 为echarts对象加载数据 
+    myChart.setOption(option);
+
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('pg_content_30d'), 'shine');
+    
+    var option = {
+        color: ['#79b05f', '#e58c65'],
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['美国标准','中国标准']
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ["13\u65e5","14\u65e5","15\u65e5","16\u65e5","17\u65e5","18\u65e5","19\u65e5","20\u65e5","21\u65e5","22\u65e5","23\u65e5","24\u65e5","25\u65e5","26\u65e5","27\u65e5","28\u65e5","29\u65e5","30\u65e5","31\u65e5","01\u65e5","02\u65e5","03\u65e5","04\u65e5","05\u65e5","06\u65e5","07\u65e5","08\u65e5","09\u65e5","10\u65e5","11\u65e5"],
+                axisLine: {
+                    lineStyle : {
+                      color: '#d4d4d4'
+                    }
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} '
+                },
+                axisLine: {
+                    lineStyle : {
+                      color: '#d4d4d4'
+                    }
+                }
+            }
+        ],
+        series : [
+            {
+                name:'美国标准',
+                type:'line',
+                data:[40,57,142,177,187,194,264,192,156,188,180,133,79,42,51,134,174,152,52,75,145,192,186,136,165,150,135,134,141,67]            },
+            {
+                name:'中国标准',
+                type:'line',
+                data:[33,45,94,152,169,179,265,171,116,178,152,84,48,32,36,88,151,114,40,61,93,168,172,86,133,108,111,91,95,54]            }
+        ]
+    };   
+    // 为echarts对象加载数据 
+    myChart.setOption(option);
+
+    
+    
+});
+
+});
+</script><div class="autocomplete-suggestions" style="position: absolute; display: none; width: 200px; top: 293px; left: 1817px; max-height: 300px; z-index: 9999;"></div></body><div></div></html>
