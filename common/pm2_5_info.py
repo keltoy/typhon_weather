@@ -1,3 +1,4 @@
+# encoding:utf-8
 import ujson
 
 class PM2_5Info(object):
