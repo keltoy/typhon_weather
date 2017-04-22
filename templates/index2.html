@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>pm2.5和天气</title>
+        <link type="text/css" rel="stylesheet" href="{{ static_url("css/propagation.css") }}">
+    </head>
+    <body>
+        <div class="banner_width banner_bg_level1">
+            <div class="banner">
+                <div class="banner_top">
+                    <div class="banner_city">
+                        <span class="city_name">北京</span>
+                        <span class="city_desc">这是个啥</span>
+                    </div>
+                    <div class="banner_updatetime">
+                        更新时间：1999-09-09
+                    </div>
+                </div>
+                <div class="banner_opacity">
+                    <div class="bo_left">
+                        <div class="bo_aqi">
+                            <a class="bo_aqi_num" href="#" target="_blank">100</a>
+                            <a class="bo_aqi_name" href="#" target="_blank">aqi指数</a>
+                        </div>
+                        <div class="bo_pm25">
+                            <a class="bo_pm25_num" href="#" target="_blank">22</a>
+                            <a class="bo_pm25_name" href="#" target="_blank">pm2.5</a>
+                        </div>
+                        <div class="bo_pm10">
+                            <a class="bo_pm10_num" href="#" target="_blank">123</a>
+                            <a class="bo_pm10_name" href="#" target="_blank">pm10</a>
+                        </div>
+                        <div class="bo_o3">
+                            <a class="bo_o3_num" href="#" target="_blank">23</a>
+                            <a class="bo_o3_name" href="#" target="_blank">臭氧</a>
+                        </div>
+                        <div class="bo_no2">
+                            <a class="b_no2_num" href="#" target="_blank">23</a>
+                            <a class="bo_no2_name" href="#" target="_blank">二氧化氮</a>
+                        </div>
+                        <div class="bo_so2">
+                            <a class="bo_so2_num" href="#" target="_blank">23</a>
+                            <a class="bo_so2_name" href="#" target="_blank">二氧化硫</a>
+                        </div>
+                        <div class="bo_co">
+                            <a class="bo_co_num" href="#" target="_blank">23</a>
+                            <a class="bo_co_name" href="#" target="_blank">一氧化碳</a>
+                        </div>
+                    </div>
+                    <div class="bo_right">
+                        <div class="bo_temp">
+                            <a class="bo_temp_num" href="#" target="_blank">33</a>
+                            <a class="bo_temp_name" href="#" target="_blank">温度</a>
+                        </div>
+                        <div class="bo_air_cond">
+                            <a class="bo_air_cond_num" href="#" target="_blank">99</a>
+                            <a class="bo_air_cond_name" href="#" target="_blank">空气质量</a>
+                        </div>
+                        <div class="bo_date">
+                            <a class="bo_date_date" href="#" target="_blank">20-11-2222</a>
+                            <a class="bo_date_name" href="#" target="_blank">日期</a>
+                        </div>
+                        <div class="bo_wind">
+                            <a class="bo_wind_info" href="#" target="_blank" >东风 大于8级</a>
+                            <a class="b0_wind_name" href="#" target="_blank" >风力</a>
+                        </div>
+                        <div class="bo_dress">
+                            <a class="bo_dress_info" href="#" target="_blank" ></a>
+                            <a class="bo_dress_name" href="#" target="_blank" >穿衣</a>
+                        </div>
+                        <div class="bo_exercise">
+                            <a class="bo_exercise_info" href="#"></a>
+                            <a class="bo_exercise_name" href="#">适合锻炼</a>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="aqi_graph" class="pg_content" style="background-color:#f7f7f7;">
+
+        </div>
+        <div id="main" style="width: 600px;height:400px;"></div>
+        <script type="text/javascript" src="{{ static_url("js/echarts.js") }}" />
+        <script type="text/javascript">
+         // 基于准备好的dom，初始化echarts实例
+         var myChart = echarts.init(document.getElementById('main'));
+
+         // 指定图表的配置项和数据
+         var option = {
+             title: {
+                 text: 'ECharts 入门示例'
+             },
+             tooltip: {},
+             legend: {
+                 data:['销量']
+             },
+             xAxis: {
+                 data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+             },
+             yAxis: {},
+             series: [{
+                 name: '销量',
+                 type: 'bar',
+                 data: [5, 20, 36, 10, 10, 20]
+             }]
+         };
+
+         // 使用刚指定的配置项和数据显示图表。
+         myChart.setOption(option);
+        </script>
+      
+    </body>
+</html>

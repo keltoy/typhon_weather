@@ -5,12 +5,16 @@ from tornado.ioloop import IOLoop
 from tornado import gen, web
 from common.item import Item
 from typhoon_weather.crawl_weather import crawlWeather
-
+from service.QCodeService import QCodeService
 from tornado_mysql import pools
 from tornado.httpclient import AsyncHTTPClient
 from datetime import datetime
+import ujson
 import configparser
 import os
+
+# monkey patch
+json = ujson
 
 cp = configparser.ConfigParser()
 cp.read("resource.conf")
@@ -79,16 +83,26 @@ class WeatherDayHandler(web.RequestHandler):
 
 
 class QCodePageHandler(web.RequestHandler):
+    qCodeService = QCodeService()
     @gen.coroutine
     def get(self, d1):
-        self.render('index.html')
+        #d1 = self.get_argument('d1', '101010100')
+        weather_json = self.qCodeService.requestWeather(d1)
+        pm25_json = self.qCodeService.requestPM25(d1)
+        hour_data = pm25_json['hourData']
+        x = []
+        y = []
+        for each in hour_data:
+            x.insert(0,each['dateTime'])
+            y.insert(0,each['aqi'])
+        self.render('index.html', w=weather_json, p=pm25_json,x=x,y=y)
 
 
 application = web.Application(handlers=[
     (r"/", MainHandler),
     (r"/weather/(\w+)/(\w+)", WeatherDayHandler),
     (r"/pm2_5", PM2_5Handler),
-    (r"/propagation/(\w+)", QCodePageHandler)
+    (r"/propagation/([%a-fA-F0-9]+)", QCodePageHandler)
     ],
                               autoreload=True,
                               template_path=os.path.join(os.path.dirname(__file__), "templates"),
