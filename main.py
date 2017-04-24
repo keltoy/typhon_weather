@@ -98,11 +98,17 @@ class QCodePageHandler(web.RequestHandler):
         self.render('index.html', w=weather_json, p=pm25_json,x=x,y=y)
 
 
+class BaseHandler(web.RequestHandler):
+    @gen.coroutine
+    def get(self):
+        self.render("error.html")
+
 application = web.Application(handlers=[
     (r"/", MainHandler),
     (r"/weather/(\w+)/(\w+)", WeatherDayHandler),
     (r"/pm2_5", PM2_5Handler),
-    (r"/propagation/([%a-fA-F0-9]+)", QCodePageHandler)
+    (r"/propagation/([%a-fA-F0-9]+)", QCodePageHandler),
+    (r".*", BaseHandler),
     ],
                               autoreload=True,
                               template_path=os.path.join(os.path.dirname(__file__), "templates"),
