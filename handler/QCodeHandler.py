@@ -1,7 +1,7 @@
+# encoding:utf-8
 from service.QCodeService import QCodeService
 from handler.BaseHandler import BaseHandler
 from tornado import gen
-#coding=utf-8
 
 WEATHER_ICON_DICT = { 
     u"中雨":"zhongyu",
