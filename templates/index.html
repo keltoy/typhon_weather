@@ -78,7 +78,7 @@
                     <div class="bo_temp col-xs-2" >
                         <p class="align_left">
                             <span class="bo_info">{{ w['weather'] }}</span>
-                            <img width="40%" src="{{ static_url("img/weather_icon/"+url_escape(w['weather'])+".png") }}"/>
+                            <img width="40%" src="{{ static_url("img/weather_icon/"+weather_icon+".png") }}" />
                         </p>
                     </div>
                     <div class="bo_wind col-xs-2">
@@ -112,7 +112,7 @@
         </div>
         <div class="row">
             <p>下载请扫描下方二维码</p>
-            <img height="20%" width="20%" src="{{ static_url("img/qcode/qcode.png") }}" alt="二维码"/>
+            <img height="40%" width="40%" src="{{ static_url("img/qcode/qcode.png") }}" alt="二维码"/>
         </div>
         <script src="{{ static_url("js/echarts.js") }}"></script>
         <script type="text/javascript">
