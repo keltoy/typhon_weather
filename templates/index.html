@@ -3,85 +3,117 @@
     <head>
         <meta charset="UTF-8"/>
         <title>PM2.5和天气</title>
-        <link href="{{ static_url("css/propagation.css") }}" rel="stylesheet"/>
         <link href="{{ static_url("css/bootstrap/bootstrap.min.css") }}" rel="stylesheet"/>
-
+        <link href="{{ static_url("css/propagation.css") }}" rel="stylesheet"/>
     </head>
     <body>
-        <div class="banner_bg_level1 banner_width">
-            <div class="banner_top row">
+        <div class="banner_width">
+            <div class="row">
                 <div class="logo col-xs-4">
-                    <a href="#">pm2.5和天气</a>
+                    <a class="banner_top" href="#" ><img height="20%" width="20%" src="{{ static_url("img/logo/Icon-512_512.png") }}" alt="pm2.5和天气"/></a>
                 </div>
                 <div class="banner_city col-xs-4">
                     <span class="city_name text-center">{{ p['city'] }}</span>
-                    <span class="city_desc text-center">空气质量和天气</span>
+                    <span class="city_desc text-center">的空气质量和天气</span>
                 </div>
                 <div class="banner_updatedtime col-xs-4 text-right">
-                    <span class="updatedtime">更新时间： {{ p['updateTime'] }}</span>
+                    <span class="updatedtime">更新时间： {{ p['updateTime'].split()[1] }}</span>
                 </div>
             </div>
-            <div class="banner_opacity container-fluid">
+            <div class="banner_bg_level1 banner_opacity container-fluid">
                 <div class="bo_pm row">
                     <div class="bo_aqi col-xs-2">
-                        <p class="bo_num">{{ p['aqi'] }}</p>
-                        <p class="bo_name">aqi指数</p>
+                        <div class="row">
+                            <p class="bo_num">{{ p['aqi'] }}</p>
+                        </div>
+                        <div class="row">
+                            <p class="bo_name">aqi指数</p>
+                        </div>
                     </div>
                     <div class="col-xs-2">
-                        <p class="bo_info">{{ w['airCondition'] }}</p>
+                        <p class="bo_info align_left">{{ w['airCondition'] }}</p>
                     </div>
-                    <div class="bo_pm25 col-xs-1">
-                        <p class="bo_num">{{ p['pm25'] }}</p>
-                        <p class="bo_name">pm2.5</p>
+                    <div class="bo_pm25 col-xs-2">
+                        <div class="row">
+                            <p class="bo_num">{{ p['pm25'] }}<span class="bo_unit">μg/m³</span></p>
+                        </div>
+                        <div class="row">
+                            <p class="bo_name">pm2.5</p>
+                        </div>
                     </div>
-                    <div class="bo_pm10 col-xs-1">
-                        <p class="bo_num">{{ p['pm10'] }}</p>
-                        <p class="bo_name">pm10</p>
+                    <div class="bo_pm10 col-xs-2">
+                        <div class="row">
+                            <p class="bo_num">{{ p['pm10'] }}<span class="bo_unit">μg/m³</span></p>
+                        </div>
+                        <div class="row">
+                            <p class="bo_name">pm10</p>
+                        </div>
                     </div>
-                    <div class="bo_no2 col-xs-1">
-                        <p class="bo_num">{{ p['no2'] }}</p>
-                        <p class="bo_name">二氧化氮</p>
+                    <div class="bo_no2 col-xs-2">
+                        <div class="row">
+                            <p class="bo_num">{{ p['no2'] }}<span class="bo_unit">μg/m³</span></p>
+                        </div>
+                        <div class="row">
+                            <p class="bo_name">二氧化氮</p>
+                        </div>
                     </div>
-                    <div class="bo_so2 col-xs-1">
-                        <p class="bo_num">{{ p['so2'] }}</p>
-                        <p class="bo_name">二氧化硫</p>
-                    </div>
-                    <div class="bo_co col-xs-1">
-                        <p class="bo_num">&nbsp</p>
-                        <p class="bo_name">一氧化碳</p>
-                    </div>
-                    <div class="bo_o3 col-xs-1">
-                        <p class="bo_num">&nbsp</p>
-                        <p class="bo_name">臭氧</p>
+                    <div class="bo_so2 col-xs-2">
+                        <div class="row">
+                            <p class="bo_num">{{ p['so2'] }}<span class="bo_unit">μg/m³</span></p>
+                        </div>
+                        <div class="row">
+                            <p class="bo_name">二氧化硫</p>
+                        </div>
                     </div>
                 </div>
                 <div class="bo_weather row">
                     <div class="bo_temp col-xs-2">
-                        <p class="bo_num">{{ w['temperature'] }}</p>
-                        <p class="bo_name">温度</p>
+                        <div class="row">
+                            <p class="bo_num">{{ w['temperature'] }}</p>
+                        </div>
+                        <div class="row" >
+                            <p class="bo_name">温度</p>
+                        </div>
                     </div>
-                    <div class="bo_temp col-xs-2">
-                        <p class="bo_info">{{ w['weather'] }}</p>
+                    <div class="bo_temp col-xs-2" >
+                        <p class="align_left">
+                            <span class="bo_info">{{ w['weather'] }}</span>
+                            <img width="40%" src="{{ static_url("img/weather_icon/"+w['weather']+".png") }}"/>
+                        </p>
                     </div>
-                     <div class="bo_wind col-xs-2">
-                         <p class="bo_info">{{ w['wind'] }}</p>
-                         <p class="bo_name">风力</p>
-                     </div>
-                     <div class="bo_dress col-xs-2">
-                         <p class="bo_info">{{ w['dressingIndex'] }}</p>
-                         <p class="bo_name">穿衣</p>
-                     </div>
-                     <div class="bo_exercise col-xs-2">
-                         <p class="bo_info">{{ w['exerciseIndex'] }}</p>
-                         <p class="bo_name">适合锻炼</p>
-                     </div>
+                    <div class="bo_wind col-xs-2">
+                        <div class="row" >
+                        <p class="bo_info">{{ w['wind'] }}</p>
+                        </div>
+                        <div class="row" >
+                        <p class="bo_name">风力</p>
+                        </div>
+                    </div>
+                    <div class="bo_dress col-xs-2">
+                        <div class="row" >
+                        <p class="bo_info">{{ w['dressingIndex'] }}</p>
+                        </div>
+                        <div class="row">
+                        <p class="bo_name">穿衣指数</p>
+                        </div>
+                    </div>
+                    <div class="bo_exercise col-xs-2">
+                        <p class="bo_info">{{ w['exerciseIndex'] }}</p>
+                        <p class="bo_name">锻炼指数</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="api_flow">
+        <div class="api_flow row">
             <h1>{{ w['city'] }} 空气质量指数(AQI)变化趋势</h1>
         </div>
-        <div id="pg_content" style="width:100%;height:400%"></div>
+        <div class="row">
+        <div id="pg_content" style="width:90%;height:250%;margin:0 auto"></div>
+        </div>
+        <div class="row">
+            <p>下载请扫描下方二维码</p>
+            <img height="20%" width="20%" src="{{ static_url("img/qcode/qcode.png") }}" alt="二维码"/>
+        </div>
         <script src="{{ static_url("js/echarts.js") }}"></script>
         <script type="text/javascript">
          var x_axis = [];
@@ -95,7 +127,8 @@
              tooltip : {
                  trigger: 'axis'
              },
-             legend: {
+            legend: {
+                 right:'center',
                  data:['AQI指数']
              },
              xAxis : [
