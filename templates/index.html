@@ -78,7 +78,7 @@
                     <div class="bo_temp col-xs-2" >
                         <p class="align_left">
                             <span class="bo_info">{{ w['weather'] }}</span>
-                            <img width="40%" src="{{ static_url("img/weather_icon/"+w['weather']+".png") }}"/>
+                            <img width="40%" src="{{ static_url("img/weather_icon/"+url_escape(w['weather'])+".png") }}"/>
                         </p>
                     </div>
                     <div class="bo_wind col-xs-2">
