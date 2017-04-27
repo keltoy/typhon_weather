@@ -44,8 +44,8 @@ class Application(web.Application):
                                  handlers=handlers,
                                  autoreload=True,
                                  template_path=template_path,
-                                 static_path=static_path,
-                                 debug=True)
+                                 static_path=static_path
+                                 )
 
 
 if __name__ == "__main__":
