@@ -1,27 +1,37 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+import logging
+import logging.config
+
+logging.config.fileConfig('conf/logger.conf')
+log = logging.getLogger('main')
+
 from tornado.ioloop import IOLoop
 from tornado import gen, web
-from common.item import Item
-from typhoon_weather.crawl_weather import crawlWeather
-from service.QCodeService import QCodeService
 from tornado_mysql import pools
 from tornado.httpclient import AsyncHTTPClient
+from tornado.httpserver import HTTPServer
+
 from datetime import datetime
-from handler.BaseHandler import BaseHandler
-from handler.HomeHandler import HomeHandler
-from handler.QCodeHandler import QCodeHandler
 import ujson
 import configparser
 import os
-from tornado.httpserver import HTTPServer
+
+from common.item import Item
+from handler.BaseHandler import BaseHandler
+from handler.HomeHandler import HomeHandler
+from handler.QCodeHandler import QCodeHandler
+
+from typhoon_weather.crawl_weather import crawlWeather
+from service.QCodeService import QCodeService
 
 # monkey patch
 json = ujson
 
+
 cp = configparser.ConfigParser()
-cp.read("resource.conf")
+cp.read("conf/resource.conf")
 host = cp.get('db', 'db_host')
 port = cp.get('db', 'db_port')
 user = cp.get('db', 'db_user')
@@ -49,6 +59,7 @@ class Application(web.Application):
 
 
 if __name__ == "__main__":
+    log.info("http started")
     http_server = HTTPServer(Application())
     http_server.listen(8000)
     IOLoop.current().start()
