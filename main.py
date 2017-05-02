@@ -54,7 +54,8 @@ class Application(web.Application):
                                  handlers=handlers,
                                  autoreload=True,
                                  template_path=template_path,
-                                 static_path=static_path
+                                 static_path=static_path,
+                                 debug=True
                                  )
 
 

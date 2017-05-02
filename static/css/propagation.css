@@ -1,25 +1,16 @@
 a {text-decoration:none}
 a:visited {color:#fff}
 a:hover {color:#fff}
-a:active {color:#fff}
+a:active {color:#ff}
 
-body {text-align: center; overflow-x:hidden;}
+body {width: 100%}
+
 /* banner */
-.banner_width{width:98%; height:20%; border-bottom:#f00; margin:0 auto;}
-.banner_bg_level1{background-color:#4fcc00;}
-.banner_bg_level2{background-color:#e3b649;}
-.banner_bg_level3{background-color:#e38748;}
-.banner_bg_level4{background-color:#e07373;}
-.banner_bg_level5{background-color:#9590c9;}
-.banner_bg_level6{background-color:#9f6aa2;}
+.banner_width{width:100%; height:20%; border-bottom:#f00; margin:0 auto;}
+.banner_bg_level1{width:96%; height:20%; background-color:#4fcc00;}
 
-.logo {font-size: 36px; color:#fff}
-.city_name {font-size:28px;color:#000; vertical-align:text-top;}
-.city_desc {font-size:28px;color:#000; opacity:0.8; vertical-align:text-top;}
-.banner_top {vertical-align:text-bottom}
-.updatedtime {font-size:14px;color:#000}
-.bo_num {font-size:24px; color:#fff; vertical-align:text-bottom;}
-.bo_name, .bo_unit {font-size:14px; color:#fff}
-.bo_info {font-size:24px; color:#fff; text-align:text-bottom;}
-.align_left {text-align:left; vertical-align:text-top;}
-.logo {text-align:left;}
+.white-char {color:#fff}
+.bottom-align {line-height:150%;}
+.
+/*
+*/

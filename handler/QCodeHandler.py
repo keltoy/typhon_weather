@@ -4,6 +4,11 @@ from handler.BaseHandler import BaseHandler
 from tornado import gen
 from common.TransformWeather import formatWeatherIcon
 
+from tornado import gen, web
+
+import logging
+
+log = logging.getLogger('main.qcode')
 
 
 class QCodeHandler(BaseHandler):
@@ -16,6 +21,7 @@ class QCodeHandler(BaseHandler):
             pm25_json = self.qCodeService.requestPM25(d1)
             hour_data = pm25_json['hourData']
             weather_icon = formatWeatherIcon(weather_json['weather'])
+            weather_json['temperature'] = weather_json['temperature'][:-1]
             x = []
             y = []
             for each in hour_data:
@@ -23,4 +29,5 @@ class QCodeHandler(BaseHandler):
                 y.insert(0,each['aqi'])
             self.render('index.html', w=weather_json, p=pm25_json,x=x,y=y, weather_icon=weather_icon)
         except:
+            log.error("qcode error")
             self.render('error.html')
