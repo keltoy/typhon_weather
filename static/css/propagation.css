@@ -11,6 +11,8 @@ body {width: 100%}
 
 .white-char {color:#fff}
 .bottom-align {line-height:150%;}
-.
+.center-align {
+    position:center;
+}
 /*
 */
