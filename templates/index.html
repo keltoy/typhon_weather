@@ -20,7 +20,7 @@
                     <h5 class="text-center">PM2.5和天气</h5>
                 </div>
                 <div id="updatetime" class="col-xs-4">
-                    <p class="text-right bottom-align">更新时间</p>
+                    <h5 class="text-right">更新时间</h5>
                     <p class="text-right">{{ p['updateTime'].split()[1] }}</p>
                 </div>
             </div>
@@ -89,22 +89,14 @@
                 <div class="col-xs-3">
                     <p class="bo_name">锻炼指数</p>
                 </div>
-                <div class="col-xs-3 text-center">
+                <div class="col-xs-3 text-right">
                     <p class="bo_info">{{ w['exerciseIndex'] }}</p>
                 </div>
                 <div class="col-xs-3">
                     <p class="bo_name">穿衣指数</p>
                 </div>
-                <div class="col-xs-3 text-center">
+                <div class="col-xs-3 text-right">
                     <p class="bo_info">{{ w['dressingIndex'] }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3">
-                    <p class="bo_name">风力风向</p>
-                </div>
-                <div class="col-xs-9 text-center">
-                    <p class="bo_info">{{ w['wind'] }}</p>
                 </div>
             </div>
         </div>
